@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  ...
+</head>
+<body>
+  {% include header.html %}
+  <main>
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/countdown.js' | relative_url }}"></script>
+  <script>
+    AOS.init({ duration: 800 });
+  </script>
+</body>
+</html>
