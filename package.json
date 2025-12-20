@@ -1,17 +1,20 @@
 {
   "name": "boda-mercedes-pablo",
   "version": "1.0.0",
-  "description": "Página web de la boda de Mercedes & Pablo",
-  "main": "index.html",
+  "description": "Invitación de boda digital - Mercedes & Pablo",
+  "type": "module",
   "scripts": {
-    "start": "python -m http.server 8000",
-    "build": "echo 'Ready to deploy to GitHub Pages'"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "boda",
-    "wedding",
-    "github-pages"
-  ],
-  "author": "Mercedes & Pablo",
-  "license": "MIT"
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "aos": "^2.3.4",
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "canvas-confetti": "^1.9.3"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
 }
