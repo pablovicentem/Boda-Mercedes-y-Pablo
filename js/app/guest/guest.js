@@ -257,7 +257,7 @@ export const guest = (() => {
             action: 'TEMPLATE',
             text: 'Bienvenido a la boda de Mercedes y Pablo',
             dates: `${formatDate('2026-04-25 18:00')}/${formatDate('2026-04-25 22:00')}`,
-            details: 'Nos da mucho gusto invitarte a nuestra boda. Mercedes & Pablo - 25 de abril de 2026',
+            details: 'Nos da mucho gusto invitarte a nuestra boda. Mercedes y Pablo - 25 de abril de 2026',
             location: 'Ubicación de la ceremonia',
             ctz: config.get('tz'),
         });
