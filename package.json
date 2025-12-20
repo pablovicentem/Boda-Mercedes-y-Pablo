@@ -1,20 +1,23 @@
 {
-  "name": "boda-mercedes-pablo",
-  "version": "1.0.0",
-  "description": "Invitación de boda digital - Mercedes & Pablo",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.8",
-    "aos": "^2.3.4",
-    "@fortawesome/fontawesome-free": "^6.5.1",
-    "canvas-confetti": "^1.9.3"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
-  }
+    "devDependencies": {
+        "@eslint/js": "^9.37.0",
+        "eslint": "^9.37.0",
+        "fs-extra": "^11.3.2",
+        "globals": "^16.4.0",
+        "htmlhint": "^1.7.1",
+        "madge": "^8.0.0",
+        "stylelint": "^16.25.0",
+        "stylelint-config-recommended": "^17.0.0"
+    },
+    "scripts": {
+        "lint:js": "eslint js",
+        "lint:css": "stylelint css",
+        "lint:html": "htmlhint **/*.html",
+        "dev": "npx esbuild js/*.js --bundle --outdir=dist --servedir=. --serve=8080",
+        "build": "npx esbuild js/*.js --bundle --minify --outdir=dist",
+        "build:public": "npm run build && node -e \"const fs = require('fs-extra'); fs.ensureDir('public').then(() => Promise.all(['assets', 'css', 'dist', 'index.html', 'dashboard.html'].map((f) => fs.copy(f, 'public/' + f)))).then(() => console.log('✅ Successfully!'));\""
+    },
+    "dependencies": {
+        "esbuild": "^0.25.10"
+    }
 }

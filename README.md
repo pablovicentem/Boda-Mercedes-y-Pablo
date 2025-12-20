@@ -1,238 +1,70 @@
-# 💍 Boda de Mercedes & Pablo
+# 💌 Template website undangan pernikahan sederhana
 
-¡Bienvenidos a nuestra página web de boda! Esta es una página web moderna, responsiva y personalizable para vuestra boda, alojada en GitHub Pages.
+![Thumbnail](/assets/images/banner.webp)
 
-**[Ver la página en vivo](https://pablovicentem.github.io/Boda-Mercedes-y-Pablo)**
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cef32dbf-f26f-4865-84a9-b85a439c9994/deploy-status)](https://app.netlify.com/sites/ulems/deploys)
+[![Hits](https://dikit.my.id/0b3y8q)](https://cie.my.id)
+[![GitHub repo size](https://img.shields.io/github/repo-size/dewanakl/undangan?color=brightgreen)](https://shields.io)
+[![GitHub License](https://img.shields.io/github/license/dewanakl/undangan?color=brightgreen)](https://shields.io)
 
----
+## 🚀 Demo
+Untuk kamu yang ingin melihat demo terlebih dahulu:
 
-## ✨ Características
+[https://ulems.my.id/?to=Teman teman semua](https://ulems.my.id/?to=Teman%20teman%20semua)
 
-- ✅ Diseño moderno y responsivo (móvil, tablet, desktop)
-- ✅ Página principal con información de la boda
-- ✅ Sección de cronograma del día
-- ✅ Galería de fotos
-- ✅ Formulario RSVP integrado
-- ✅ Mapa de ubicación
-- ✅ Completamente personalizable
-- ✅ Alojado gratuitamente en GitHub Pages
+## 📦 Documentation
 
----
+* Jalankan perintah `npm install`, lalu `npm run dev`, dan buka `http://localhost:8080`.
+* Ubah isi file `index.html` sesuai keinginanmu.
+* Jika tidak ingin menggunakan **fitur komentar**, hapus atribut `data-url` dan `data-key` di elemen `<body>` pada index.html.
+* Sesuaikan `data-url` pada `<body>` di index dan dashboard sesuai dengan URL backend (jika kamu meng-hosting sendiri).
+* Sesuaikan juga `data-key` di index dengan access key yang bisa kamu ambil dari dashboard.
+* Jika ingin menggunakan GIF, dapatkan Tenor API key di [developers.google.com/tenor](https://developers.google.com/tenor/guides/quickstart).
+* Untuk deployment, jalankan `npm run build:public`. Folder `public` adalah yang akan kamu upload.
+* Untuk backend self-hosting, lihat penjelasan di bawah, atau gunakan **trial API** secara gratis.
 
-## 🚀 Cómo Personalizar
+> Undangan ini hanya menggunakan HTML, CSS, dan JavaScript biasa. NPM digunakan agar file JavaScript bisa langsung dieksekusi (bukan bertipe module lagi).
 
-### 1. Editar Información de la Boda
-Abre `index.html` y busca y reemplaza:
-- `Mercedes & Pablo` → vuestros nombres
-- `20 de diciembre de 2025` → vuestra fecha
-- Los horarios y lugares en la sección de timeline
+> Jika tetap ingin tanpa NPM, ubah `src="./dist/guest.js"` menjadi `src="./js/guest.js" type="module"` pada tag `<head>` di index dan dashboard.html, dengan risiko glitch tema di awal loading.
 
-### 2. Añadir Fotos
-- Copia tus fotos a la carpeta `img/`
-- Actualiza los nombres de las imágenes en `index.html`:
-  - `img/placeholder-1.jpg` → tu foto
-  - Y así sucesivamente para todas las fotos
+> Jika kamu punya pertanyaan, gunakan fitur `discussions` agar bisa dibaca juga oleh teman-teman lainnya.
 
-### 3. Actualizar Redes Sociales
-En el footer, reemplaza los `#` en:
-```html
-<a href="https://instagram.com/tuusuario" title="Instagram"><i class="fab fa-instagram"></i></a>
-<a href="https://facebook.com/tuusuario" title="Facebook"><i class="fab fa-facebook"></i></a>
-```
+> [!WARNING]  
+> Gunakan versi 3.14.0, untuk versi 4 masih tahap pengembangan dan berpotensi teredapat bug 🐛
 
-### 4. Configurar el RSVP con Google Forms (Opcional)
-El formulario actualmente guarda datos en el navegador. Para integrar con Google Forms:
-1. Crea un formulario en [Google Forms](https://forms.google.com)
-2. Obtén el ID del formulario de la URL
-3. Usa el ID en la función `sendToGoogleForms()` en `js/script.js`
+## 🔥 Deployment API
 
----
+- Video\
+    otw
 
-## 📱 Secciones Principales
+- Presentation
+    [https://docs.google.com/presentation](https://docs.google.com/presentation/d/1EY2YmWdZUI7ASoo0f2wvU7ec_Yt0uZanYa8YLbfNysk/edit)
 
-- **Inicio** - Portada elegante con fecha
-- **La Pareja** - Presentación de los novios
-- **Evento** - Cronograma y ubicación
-- **Galería** - Tus mejores fotos
-- **RSVP** - Formulario de confirmación
-- **Footer** - Enlaces a redes sociales
+## ⏰ Trial API
+Untuk kamu yang ingin mencoba secara gratis:
 
----
+[https://trial.ulems.my.id](https://trial.ulems.my.id)
 
-## 🎨 Colores Personalizados
+## ⚙️ Tech stack
 
-Los colores están definidos en `css/style.css`. Busca `:root` y modifica:
-```css
---primary-color: #d4567a;      /* Rosa principal */
---secondary-color: #f5a5ac;    /* Rosa secundaria */
---dark-color: #2c3e50;         /* Oscuro */
-```
+- Bootstrap 5.3.8
+- AOS 2.3.4
+- Fontawesome 7.1.0
+- Canvas Confetti 1.9.3
+- Google Fonts
+- Vanilla JS
 
----
+## 🎨 Credit
+All visual assets in this project are sourced from Pixabay.
 
-## 📝 Requisitos para GitHub Pages
+## 🤝 Contributing
 
-✅ **Ya está configurado:**
-- `.nojekyll` - Para deshabilitar Jekyll
-- `_config.yml` - Configuración de Jekyll
-- `index.html` - Página principal
+I'm very open to those of you who want to contribute to the undangan!
 
----
+## 🐞 Security Vulnerabilities
 
-## 🌐 Desplegar en GitHub Pages
+If you find any security vulnerabilities in this undangan, please email DKL via [dewanakretarta29@gmail.com](mailto:dewanakretarta29@gmail.com).
 
-### Opción 1: Usar la rama `main` (Recomendado)
-1. Ve a tu repositorio en GitHub
-2. Settings → Pages
-3. Source: selecciona "Deploy from a branch"
-4. Branch: selecciona `main`
-5. ¡Listo! Tu sitio estará en `https://usuario.github.io/Boda-Mercedes-y-Pablo`
+## 📜 License
 
-### Opción 2: Usar la rama `gh-pages`
-```bash
-# Crea una rama gh-pages
-git checkout -b gh-pages
-
-# Haz push de esta rama
-git push origin gh-pages
-
-# En GitHub Settings → Pages
-# Selecciona la rama gh-pages
-```
-
----
-
-## 💻 Ejecutar Localmente
-
-```bash
-# Python 3
-python -m http.server 8000
-
-# Luego abre en tu navegador:
-# http://localhost:8000
-```
-
----
-
-## 📧 Formulario RSVP
-
-El formulario tiene los siguientes campos:
-- Nombre completo (requerido)
-- Email (requerido)
-- Teléfono (opcional)
-- Número de asistentes (requerido)
-- Confirmación de asistencia (requerido)
-- Dietas especiales (opcional)
-- Mensaje para los novios (opcional)
-
-Los datos se guardan en localStorage del navegador. Para sincronizar con email o Google Sheets, necesitarás implementar un backend o usar Google Apps Script.
-
----
-
-## 🔧 Estructura de Archivos
-
-```
-Boda-Mercedes-y-Pablo/
-├── index.html          # Página principal
-├── css/
-│   └── style.css       # Estilos
-├── js/
-│   └── script.js       # JavaScript
-├── img/                # Carpeta para fotos
-├── package.json        # Dependencias del proyecto
-├── README.md           # Este archivo
-├── _config.yml         # Configuración de Jekyll
-└── .nojekyll          # Disables Jekyll processing
-```
-
----
-
-## 🎯 Siguiente Pasos
-
-1. **Personaliza la información** - Reemplaza nombres, fechas y lugares
-2. **Añade fotos** - Sube tus mejores fotos a la carpeta `img/`
-3. **Actualiza redes sociales** - Añade tus perfiles de Instagram y Facebook
-4. **Prueba localmente** - Ejecuta `python -m http.server 8000` y visualiza
-5. **Haz push a GitHub** - Sube los cambios y verifica en GitHub Pages
-
----
-
-## 📚 Recursos Útiles
-
-- [GitHub Pages Docs](https://pages.github.com/)
-- [Google Forms para RSVP](https://forms.google.com/)
-- [Font Awesome Icons](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
-
----
-
-## ❤️ Personalización Avanzada
-
-### Cambiar Fuentes
-En `index.html`, busca:
-```html
-<link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,600,700&display=swap" rel="stylesheet">
-```
-Añade más fuentes desde [Google Fonts](https://fonts.google.com/)
-
-### Agregar Video de Venue
-Reemplaza el iframe de Google Maps en `index.html` con:
-```html
-<iframe src="https://www.youtube.com/embed/VIDEO_ID" width="100%" height="400"></iframe>
-```
-
----
-
-## 📞 Soporte
-
-¿Preguntas? Consulta la documentación del proyecto original:
-[wedding-website](https://github.com/rampatra/wedding-website)
-
----
-
-## 📄 Licencia
-
-Inspirado en [wedding-website](https://github.com/rampatra/wedding-website) de [Ram Patra](https://github.com/rampatra)
-
----
-
-**¡Que disfrutéis preparando vuestra boda! 💍❤️**
-
----
-
-## 💌 Confirmación de Asistencia
-
-Por favor, confirma tu asistencia antes del **[fecha límite]**.  
-[🔗 Confirmar asistencia](#)
-
----
-
-## 📸 Comparte Tus Fotos
-
-Nos encantaría ver todas vuestras fotos del día.  
-Usad el hashtag **#[HashtagDeLaBoda]** en redes sociales.
-
----
-
-## ❤️ Mensajes para Nosotros
-
-Si quieres dejarnos un mensaje bonito o recuerdo especial, puedes hacerlo aquí:  
-[🔗 Dejar mensaje](#)
-
----
-
-## 🎁 Lista de Bodas
-
-Si deseas hacernos un regalo, aquí tienes nuestra lista:  
-[🔗 Lista de bodas](#)
-
----
-
-## ✨ ¡Gracias por compartir este día con nosotros!
-
-Estamos deseando celebrar juntos y crear recuerdos inolvidables.  
-¡Nos vemos pronto! 💖
-
----
-
-> “El amor no se mira, se siente, y aún más cuando se comparte con quienes más queremos.”
+Undangan is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
