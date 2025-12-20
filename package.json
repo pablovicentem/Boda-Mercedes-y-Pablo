@@ -1,0 +1,17 @@
+{
+  "name": "boda-mercedes-pablo",
+  "version": "1.0.0",
+  "description": "Página web de la boda de Mercedes & Pablo",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "build": "echo 'Ready to deploy to GitHub Pages'"
+  },
+  "keywords": [
+    "boda",
+    "wedding",
+    "github-pages"
+  ],
+  "author": "Mercedes & Pablo",
+  "license": "MIT"
+}
