@@ -42,16 +42,16 @@
 
 @keyframes love {
     0%, 100% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(1rem) scale(1.1);
+        transform: translateY(0.5rem);
     }
 }
 
 .animate-love {
     animation: love 5s ease-in-out infinite;
-    filter: drop-shadow(0 2px 8px rgba(217, 122, 82, 0.4));
+    filter: none;
 }
 
 .slide-desktop {

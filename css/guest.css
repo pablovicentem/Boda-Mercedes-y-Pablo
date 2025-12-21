@@ -78,15 +78,11 @@ html {
 /* Elegant sunset gradient background for home section */
 #home {
     background: linear-gradient(to bottom, 
-        #1a0f29 0%,
-        #2d1b3d 10%,
-        #4a2f54 20%,
-        #704363 35%,
-        #a85d5e 50%,
-        #d97a52 65%,
-        #f09847 80%,
-        #f5b86e 95%,
-        #fdd9a3 100%
+        #f5f0eb 0%,
+        #ede5dc 25%,
+        #e8d5c4 50%,
+        #dcc5b0 75%,
+        #d4b5a0 100%
     ) !important;
     background-attachment: fixed;
     position: relative;
@@ -146,49 +142,29 @@ html[data-bs-theme="light"] .btn-transparent:hover {
 }
 
 html[data-bs-theme="light"] .color-theme-svg {
-    color: rgb(255, 249, 240);
-    background: linear-gradient(to bottom, 
-        rgb(255, 255, 255) 0%,
-        rgb(255, 249, 240) 50%,
-        rgb(253, 243, 230) 100%
-    );
+    color: rgb(255, 255, 255);
+    background: rgb(250, 247, 243);
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(26, 15, 41);
-    background: linear-gradient(to bottom,
-        rgb(0, 0, 0) 0%,
-        rgb(26, 15, 41) 50%,
-        rgb(45, 27, 61) 100%
-    );
+    color: rgb(40, 35, 30);
+    background: rgb(30, 28, 25);
 }
 
 html[data-bs-theme="light"] .bg-light-dark {
-    background: linear-gradient(to bottom,
-        rgb(255, 249, 240) 0%,
-        rgb(253, 243, 230) 100%
-    );
+    background: rgb(248, 246, 243);
 }
 
 html[data-bs-theme="dark"] .bg-light-dark {
-    background: linear-gradient(to bottom,
-        rgb(26, 15, 41) 0%,
-        rgb(45, 27, 61) 100%
-    );
+    background: rgb(35, 33, 30);
 }
 
 html[data-bs-theme="light"] .bg-white-black {
-    background: linear-gradient(to bottom,
-        rgb(255, 255, 255) 0%,
-        rgb(255, 249, 240) 100%
-    );
+    background: rgb(255, 255, 255);
 }
 
 html[data-bs-theme="dark"] .bg-white-black {
-    background: linear-gradient(to bottom,
-        rgb(18, 12, 28) 0%,
-        rgb(26, 15, 41) 100%
-    );
+    background: rgb(25, 23, 20);
 }
 
 .bg-cover-home {
@@ -257,13 +233,13 @@ svg {
     height: 3.5rem;
     min-width: 3.5rem;
     border-radius: 50%;
-    background: linear-gradient(135deg, #d97a52 0%, #f09847 50%, #f5b86e 100%);
+    background: linear-gradient(135deg, #c9a68a 0%, #b89878 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.25rem;
-    box-shadow: 0 4px 20px rgba(217, 122, 82, 0.5), 0 0 40px rgba(240, 152, 71, 0.2);
+    box-shadow: 0 2px 10px rgba(184, 152, 120, 0.3);
     z-index: 2;
     position: relative;
 }
@@ -274,7 +250,7 @@ svg {
     top: 3.5rem;
     width: 3px;
     height: calc(100% + 1rem);
-    background: linear-gradient(to bottom, #d97a52, #f09847, #fdd9a3);
+    background: linear-gradient(to bottom, #c9a68a, #d4b5a0);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -294,20 +270,20 @@ svg {
 }
 
 [data-bs-theme="light"] .timeline-content {
-    background: rgba(255, 249, 240, 0.9);
-    box-shadow: 0 4px 15px rgba(217, 122, 82, 0.1);
-    border: 1px solid rgba(217, 122, 82, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(166, 137, 104, 0.2);
 }
 
 [data-bs-theme="dark"] .timeline-content {
-    background: rgba(42, 28, 50, 0.6);
+    background: rgba(50, 45, 40, 0.6);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(217, 122, 82, 0.3);
+    border: 1px solid rgba(166, 137, 104, 0.3);
 }
 
 .timeline-content h3 {
-    color: #d97a52;
-    text-shadow: 0 1px 3px rgba(217, 122, 82, 0.3);
+    color: #a68968;
+    text-shadow: none;
 }
 
 @media (max-width: 480px) {
@@ -330,8 +306,7 @@ svg {
 
 /* Image optimization for all images */
 img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    image-rendering: auto;
 }
 
 /* Carousel images optimization */
@@ -359,7 +334,8 @@ img {
 
 /* Smooth transitions for lazy loaded images */
 img[data-src] {
-    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 }
 
 img[data-src].loaded {
