@@ -131,18 +131,22 @@
                         <div class="border rounded-pill shadow py-2 px-2 px-sm-4 mt-3 mb-4" style="font-size: 0.9rem;">
                             <div class="row justify-content-center g-1 g-sm-2">
                                 <div class="col p-0 p-sm-1">
-                                    <p class="d-inline m-0" style="font-size: 1rem;" id="day">0</p><br><small class="d-block" style="font-size: 0.65rem;">Días</small>
+                                    <p class="d-inline m-0" style="font-size: 1rem;" id="month">0</p><br><small class="d-block" style="font-size: 0.6rem;">Meses</small>
                                 </div>
                                 <div class="col p-0 p-sm-1">
-                                    <p class="d-inline m-0" style="font-size: 1rem;" id="hour">0</p><br><small class="d-block" style="font-size: 0.65rem;">Horas</small>
+                                    <p class="d-inline m-0" style="font-size: 1rem;" id="day">0</p><br><small class="d-block" style="font-size: 0.6rem;">Días</small>
                                 </div>
                                 <div class="col p-0 p-sm-1">
-                                    <p class="d-inline m-0" style="font-size: 1rem;" id="minute">0</p><br><small class="d-block" style="font-size: 0.65rem;">Min</small>
+                                    <p class="d-inline m-0" style="font-size: 1rem;" id="hour">0</p><br><small class="d-block" style="font-size: 0.6rem;">Horas</small>
                                 </div>
                                 <div class="col p-0 p-sm-1">
-                                    <p class="d-inline m-0" style="font-size: 1rem;" id="second">0</p><br><small class="d-block" style="font-size: 0.65rem;">Seg</small>
+                                    <p class="d-inline m-0" style="font-size: 1rem;" id="minute">0</p><br><small class="d-block" style="font-size: 0.6rem;">Min</small>
+                                </div>
+                                <div class="col p-0 p-sm-1">
+                                    <p class="d-inline m-0" style="font-size: 1rem;" id="second">0</p><br><small class="d-block" style="font-size: 0.6rem;">Seg</small>
                                 </div>
                             </div>
+                        </div>
                         </div>
 
                         <div class="d-flex justify-content-center align-items-center mt-4 mb-2" style="overflow: visible;">
@@ -223,6 +227,10 @@
                                 <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                 <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="7" aria-label="Slide 8"></button>
                             </div>
 
                             <div class="carousel-inner rounded-4">
@@ -238,29 +246,7 @@
                                 <div class="carousel-item">
                                     <img src="./assets/images/placeholder.webp" data-src="./assets/images/desktop/IMG_1016.jpg" alt="image 4" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
                                 </div>
-                            </div>
-
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-one" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-one" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-
-                        <div id="carousel-image-two" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                            </div>
-
-                            <div class="carousel-inner rounded-4">
-                                <div class="carousel-item active">
+                                <div class="carousel-item">
                                     <img src="./assets/images/placeholder.webp" data-src="./assets/images/desktop/IMG_1330.JPG" alt="image 5" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
                                 </div>
                                 <div class="carousel-item">
@@ -274,12 +260,12 @@
                                 </div>
                             </div>
 
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-two" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-one" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
+                                <span class="visually-hidden">Previous</span>
                             </button>
 
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-two" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-one" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -369,17 +355,6 @@
                                 </div>
                             </div>
 
-                        </div>
-
-                        <p class="py-2 m-0" style="font-size: 0.95rem;">Para que el ambiente sea cálido y acogedor, os pedimos que sigáis este código de vestimenta:</p>
-
-                        <div class="py-2" data-aos="fade-down" data-aos-duration="1500">
-                            <div class="d-flex justify-content-center align-items-center mb-3">
-                                <div class="shadow rounded-circle border border-secondary" style="width: 3rem; height: 3rem; background-color: white;"></div>
-                                <div class="shadow rounded-circle border border-secondary" style="width: 3rem; height: 3rem; background-color: aquamarine; margin-left: -1rem;"></div>
-                                <div class="shadow rounded-circle border border-secondary" style="width: 3rem; height: 3rem; background-color: limegreen; margin-left: -1rem;"></div>
-                            </div>
-                            <p style="font-size: 0.95rem;">Elegancia casual. Ropa cómoda y zapatos.</p>
                         </div>
                     </div>
                 </section>
