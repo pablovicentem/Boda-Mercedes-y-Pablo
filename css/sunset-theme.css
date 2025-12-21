@@ -4,13 +4,13 @@
  */
 
 :root {
-    /* Sunset Color Palette - Authentic Sunset */
-    --sunset-deep-purple: #1a1832;
-    --sunset-purple: #2d2440;
-    --sunset-mauve: #5b3a70;
-    --sunset-lavender: #7d5ba6;
-    --sunset-pink: #b85c8f;
-    --sunset-rose: #d97aa0;
+    /* Sunset Color Palette - Red Burgundy Sunset */
+    --sunset-deep-burgundy: #2d0a1a;
+    --sunset-burgundy: #4a0e1e;
+    --sunset-dark-red: #6b1a2a;
+    --sunset-red: #8b2635;
+    --sunset-intense-red: #a8384a;
+    --sunset-red-coral: #c75760;
     --sunset-coral: #e88b6f;
     --sunset-orange: #f4a460;
     --sunset-gold: #f7c873;
@@ -25,12 +25,15 @@
         var(--sunset-gold) 100%);
     
     --gradient-twilight: linear-gradient(to bottom,
-        var(--sunset-deep-purple) 0%,
-        var(--sunset-purple) 20%,
-        var(--sunset-mauve) 40%,
-        var(--sunset-pink) 60%,
+        var(--sunset-deep-burgundy) 0%,
+        var(--sunset-burgundy) 20%,
+        var(--sunset-dark-red) 40%,
+        var(--sunset-red) 50%,
+        var(--sunset-intense-red) 60%,
+        var(--sunset-red-coral) 70%,
         var(--sunset-coral) 80%,
-        var(--sunset-orange) 100%);
+        var(--sunset-orange) 90%,
+        var(--sunset-gold) 100%);
 }
 
 /* Font Esthetic with Sunset Theme */
@@ -81,7 +84,7 @@ html[data-bs-theme="dark"] .font-esthetic {
 }
 
 .text-sunset-dark {
-    color: var(--sunset-mauve) !important;
+    color: var(--sunset-dark-red) !important;
 }
 
 /* Background Gradients */
@@ -173,8 +176,8 @@ img[data-src].loaded {
 
 /* Animated Hearts with Sunset Colors */
 svg path[fill="currentColor"] {
-    color: #d97aa0;
-    filter: drop-shadow(0 1px 3px rgba(217, 122, 160, 0.3));
+    color: #c75760;
+    filter: drop-shadow(0 1px 3px rgba(199, 87, 96, 0.3));
 }
 
 html[data-bs-theme="dark"] svg path[fill="currentColor"] {
@@ -205,7 +208,7 @@ html[data-bs-theme="dark"] svg path[fill="currentColor"] {
 }
 
 html[data-bs-theme="dark"] ::-webkit-scrollbar-track {
-    background: rgba(26, 24, 50, 0.5);
+    background: rgba(45, 10, 26, 0.5);
 }
 
 /* Selection Color */

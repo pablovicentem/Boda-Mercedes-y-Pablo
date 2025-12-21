@@ -75,18 +75,18 @@ html {
     }
 }
 
-/* Elegant sunset gradient background for home section */
+/* Elegant burgundy red sunset gradient background for home section */
 #home {
     background: linear-gradient(to bottom, 
-        #1a1832 0%,
-        #2d2440 15%,
-        #5b3a70 30%,
-        #7d5ba6 45%,
-        #b85c8f 55%,
-        #d97aa0 65%,
-        #e88b6f 75%,
-        #f4a460 85%,
-        #f7c873 95%,
+        #2d0a1a 0%,
+        #4a0e1e 12%,
+        #6b1a2a 25%,
+        #8b2635 37%,
+        #a8384a 50%,
+        #c75760 62%,
+        #e88b6f 72%,
+        #f4a460 82%,
+        #f7c873 92%,
         #fdd89f 100%
     ) !important;
     background-attachment: fixed;
@@ -100,8 +100,8 @@ section:has(> div > h2:contains("Mensajes")) {
 
 html[data-bs-theme="dark"] .btn-transparent {
     background: linear-gradient(135deg, 
-        rgba(91, 58, 112, 0.6) 0%,
-        rgba(125, 91, 166, 0.5) 100%
+        rgba(107, 26, 42, 0.6) 0%,
+        rgba(139, 38, 53, 0.5) 100%
     ) !important;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(232, 139, 111, 0.3);
@@ -110,8 +110,8 @@ html[data-bs-theme="dark"] .btn-transparent {
 
 html[data-bs-theme="dark"] .btn-transparent:hover {
     background: linear-gradient(135deg, 
-        rgba(125, 91, 166, 0.7) 0%,
-        rgba(184, 92, 143, 0.6) 100%
+        rgba(139, 38, 53, 0.7) 0%,
+        rgba(168, 56, 74, 0.6) 100%
     ) !important;
     border: 1px solid rgba(232, 139, 111, 0.5);
     transform: translateY(-2px);
@@ -156,11 +156,11 @@ html[data-bs-theme="light"] .color-theme-svg {
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(45, 36, 64);
+    color: rgb(74, 14, 30);
     background: linear-gradient(to bottom,
-        rgb(26, 24, 50) 0%,
-        rgb(45, 36, 64) 50%,
-        rgb(91, 58, 112) 100%
+        rgb(45, 10, 26) 0%,
+        rgb(74, 14, 30) 50%,
+        rgb(107, 26, 42) 100%
     );
 }
 
@@ -173,8 +173,8 @@ html[data-bs-theme="light"] .bg-light-dark {
 
 html[data-bs-theme="dark"] .bg-light-dark {
     background: linear-gradient(to bottom,
-        rgb(26, 24, 50) 0%,
-        rgb(45, 36, 64) 100%
+        rgb(45, 10, 26) 0%,
+        rgb(74, 14, 30) 100%
     );
 }
 
@@ -187,8 +187,8 @@ html[data-bs-theme="light"] .bg-white-black {
 
 html[data-bs-theme="dark"] .bg-white-black {
     background: linear-gradient(to bottom,
-        rgb(45, 36, 64) 0%,
-        rgb(91, 58, 112) 100%
+        rgb(74, 14, 30) 0%,
+        rgb(107, 26, 42) 100%
     );
 }
 
@@ -301,7 +301,7 @@ svg {
 }
 
 [data-bs-theme="dark"] .timeline-content {
-    background: rgba(45, 36, 64, 0.7);
+    background: rgba(74, 14, 30, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(232, 139, 111, 0.3);
 }
