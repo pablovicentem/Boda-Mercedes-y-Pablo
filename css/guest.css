@@ -85,18 +85,6 @@ html {
 }
 
 /* Hide unnecessary sections for visual lightness */
-section:has(> div > h2:contains("Allah")) {
-    display: none;
-}
-
-section:has(> div > h2:contains("Nuestra Historia de Amor")) {
-    display: none;
-}
-
-#gallery {
-    display: none;
-}
-
 section:has(> div > h2:contains("Mensajes")) {
     display: none;
 }
