@@ -212,6 +212,71 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Gallery inside Nosotros section -->
+                    <div class="border rounded-5 shadow p-3 mt-4 mb-4">
+                        <h3 class="font-esthetic text-center py-2 m-0" style="font-size: 1.75rem;">Nuestra Historia</h3>
+
+                        <div id="carousel-image-one" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+
+                            <div class="carousel-inner rounded-4">
+                                <div class="carousel-item active">
+                                    <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=1" alt="image 1" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=2" alt="image 2" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=3" alt="image 3" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-one" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-one" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <div id="carousel-image-two" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+
+                            <div class="carousel-inner rounded-4">
+                                <div class="carousel-item active">
+                                    <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=4" alt="image 4" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=5" alt="image 5" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=6" alt="image 6" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-two" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-two" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Wave Separator -->
@@ -220,66 +285,6 @@
                         <path fill="currentColor" fill-opacity="1" d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
                     </svg>
                 </div>
-
-                            <!-- Jika tidak ingin menggunakan video, hapus seluruh tag dengan id="video-love-story" di bawah ini. -->
-                            <!-- If you don't want to use the video, remove the entire tag with id="video-love-story" below. -->
-
-                            <div id="video-love-stroy" class="position-relative rounded-4 mb-2 pb-0" data-src="./assets/video/265501_tiny.mp4" data-vid-class="w-100 rounded-4 shadow-sm m-0 p-0">
-                                <div class="position-absolute d-flex flex-column justify-content-center align-items-center top-50 start-50 translate-middle w-100 h-100 bg-overlay-auto rounded-4 z-3" id="video-love-stroy-loading">
-                                    <div class="progress w-25" role="progressbar" style="height: 0.5rem;" aria-label="progress bar">
-                                        <div class="progress-bar" id="progress-bar-video-love-stroy" style="width: 0%;"></div>
-                                    </div>
-                                    <small class="mt-1 text-theme-auto bg-theme-auto py-0 px-2 rounded-4" id="progress-info-video-love-stroy" style="font-size: 0.7rem;"></small>
-                                </div>
-                            </div>
-
-                            <div class="position-relative">
-                                <div class="position-absolute d-flex justify-content-center align-items-center top-50 start-50 translate-middle w-100 h-100 bg-overlay-auto z-3" style="opacity: 100%; background-color: unset;">
-                                    <button class="btn btn-outline-auto btn-sm rounded-4 shadow-sm" onclick="undangan.guest.showStory(this.parentNode)"><i class="fa-solid fa-heart fa-bounce me-2"></i>Ver Nuestra Historia</button>
-                                </div>
-
-                                <div class="overflow-y-scroll overflow-x-hidden p-2 with-scrollbar" style="height: 15rem;">
-                                    <div class="row">
-                                        <div class="col-auto position-relative">
-                                            <p class="position-relative d-flex justify-content-center align-items-center bg-theme-auto border border-secondary border-2 opacity-100 rounded-circle m-0 p-0 z-1" style="width: 2rem; height: 2rem;">1</p>
-                                            <hr class="position-absolute top-0 start-50 translate-middle-x border border-secondary h-100 z-0 opacity-100 m-0 rounded-4 shadow-none">
-                                        </div>
-                                        <div class="col mt-1 mb-3 ps-0">
-                                            <p class="fw-bold mb-2">� El Primer Encuentro</p>
-                                            <p class="small mb-0">
-                                                [Cuéntanos cómo os conocisteis. ¿Dónde? ¿Cuándo? ¿Qué sentiste en ese momento? Este es el inicio de vuestra historia de amor]
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-auto position-relative">
-                                            <p class="position-relative d-flex justify-content-center align-items-center bg-theme-auto border border-secondary border-2 opacity-100 rounded-circle m-0 p-0 z-1" style="width: 2rem; height: 2rem;">2</p>
-                                            <hr class="position-absolute top-0 start-50 translate-middle-x border border-secondary h-100 z-0 opacity-100 m-0 rounded-4 shadow-none">
-                                        </div>
-                                        <div class="col mt-1 mb-3 ps-0">
-                                            <p class="fw-bold mb-2">� Un Momento Especial</p>
-                                            <p class="small mb-0">
-                                                [Comparte un momento importante que cambió vuestra relación. Un viaje, una conversación profunda, un apoyo mutuo. Cuéntanos cómo supo Pablo que Mercedes era la indicada, o viceversa]
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-auto position-relative">
-                                            <p class="position-relative d-flex justify-content-center align-items-center bg-theme-auto border border-secondary border-2 opacity-100 rounded-circle m-0 p-0 z-1" style="width: 2rem; height: 2rem;">3</p>
-                                            <hr class="position-absolute top-0 start-50 translate-middle-x border border-secondary h-100 z-0 opacity-100 m-0 rounded-4 shadow-none">
-                                        </div>
-                                        <div class="col mt-1 mb-3 ps-0">
-                                            <p class="fw-bold mb-2">💍 El Día del Sí</p>
-                                            <p class="small mb-0">
-                                                [Cuenta cómo propusiste matrimonio. ¿Dónde estabais? ¿Cómo reaccionó? Comparte los detalles del momento en que decidisteis casaros juntos. ¿Contasteis con la bendición de vuestras familias? Este es el punto culminante de vuestra historia de amor]
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 <!-- Wave Separator -->
                 <div class="svg-wrapper">
@@ -344,75 +349,6 @@
                 </section>
 
                 <!-- Gallery -->
-                <section class="bg-white-black pb-5 pt-3" id="gallery">
-                    <div class="container">
-                        <div class="border rounded-5 shadow p-3">
-
-                            <h2 class="font-esthetic text-center py-2 m-0" style="font-size: 2.25rem;">Nuestra Historia</h2>
-
-                            <div id="carousel-image-one" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-
-                                <div class="carousel-inner rounded-4">
-                                    <div class="carousel-item active">
-                                        <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=1" alt="image 1" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=2" alt="image 2" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=3" alt="image 3" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                </div>
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-one" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-one" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-
-                            <div id="carousel-image-two" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-
-                                <div class="carousel-inner rounded-4">
-                                    <div class="carousel-item active">
-                                        <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=4" alt="image 4" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=5" alt="image 5" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=6" alt="image 6" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                </div>
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-two" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-two" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
                 <!-- Attendance Form -->
                 <section class="bg-light-dark pb-3" id="attendance-form">
                     <div class="container text-center">
@@ -520,7 +456,7 @@
                 </section>
 
                 <!-- Transfer Bank -->
-                <section class="bg-light-dark pb-3" id="transfer-bank">
+                <section class="bg-white-black pb-3" id="transfer-bank">
                     <div class="container text-center">
                         <h2 class="font-esthetic pt-3 mb-4" style="font-size: 2.25rem;">Transferencia Bancaria</h2>
                         <p class="mb-4" style="font-size: 0.95rem;">Si deseas hacer una transferencia, aquí están nuestros datos:</p>
