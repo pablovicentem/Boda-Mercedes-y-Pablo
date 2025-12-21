@@ -18,7 +18,7 @@
 .mouse-animation>.scroll-animation {
     width: 0.25rem;
     height: 0.625rem;
-    animation: scroll 3s linear infinite;
+    animation: scroll 3s ease-in-out infinite;
 }
 
 .mouse-animation {
@@ -41,20 +41,44 @@
 }
 
 @keyframes love {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
     50% {
-        transform: translateY(1rem);
+        transform: translateY(1rem) scale(1.1);
     }
 }
 
 .animate-love {
     animation: love 5s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(217, 122, 82, 0.4));
 }
 
 .slide-desktop {
     transform: scale(1);
-    transition: transform 10s linear;
+    transition: transform 12s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
 .slide-desktop-active {
     transform: scale(1.15);
+}
+
+/* Smooth fade transitions for carousel */
+.carousel-item {
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+/* Sunset glow effect */
+@keyframes sunset-glow {
+    0%, 100% {
+        filter: brightness(1) saturate(1);
+    }
+    50% {
+        filter: brightness(1.1) saturate(1.2);
+    }
+}
+
+.sunset-glow {
+    animation: sunset-glow 6s ease-in-out infinite;
 }

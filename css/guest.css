@@ -25,6 +25,12 @@ html {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
+    object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /* Navbar Icons - Better alignment with sections */
@@ -69,16 +75,18 @@ html {
     }
 }
 
-/* Sunset gradient background for home section */
+/* Elegant sunset gradient background for home section */
 #home {
     background: linear-gradient(to bottom, 
-        #2d1810 0%,
-        #4a2c1f 15%,
-        #6b3f28 30%,
-        #c86432 50%,
-        #d97c4c 65%,
-        #e89655 80%,
-        #f0a860 100%
+        #1a0f29 0%,
+        #2d1b3d 10%,
+        #4a2f54 20%,
+        #704363 35%,
+        #a85d5e 50%,
+        #d97a52 65%,
+        #f09847 80%,
+        #f5b86e 95%,
+        #fdd9a3 100%
     ) !important;
     background-attachment: fixed;
     position: relative;
@@ -90,13 +98,43 @@ section:has(> div > h2:contains("Mensajes")) {
 }
 
 html[data-bs-theme="dark"] .btn-transparent {
-    background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
-    backdrop-filter: blur(0.5rem);
+    background: linear-gradient(135deg, 
+        rgba(74, 47, 84, 0.6) 0%,
+        rgba(112, 67, 99, 0.5) 100%
+    ) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(217, 122, 82, 0.3);
+    transition: all 0.3s ease;
+}
+
+html[data-bs-theme="dark"] .btn-transparent:hover {
+    background: linear-gradient(135deg, 
+        rgba(112, 67, 99, 0.7) 0%,
+        rgba(168, 93, 94, 0.6) 100%
+    ) !important;
+    border: 1px solid rgba(217, 122, 82, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(217, 122, 82, 0.3);
 }
 
 html[data-bs-theme="light"] .btn-transparent {
-    background-color: rgba(var(--bs-light-rgb), 0.5) !important;
-    backdrop-filter: blur(0.5rem);
+    background: linear-gradient(135deg,
+        rgba(255, 249, 240, 0.8) 0%,
+        rgba(253, 243, 230, 0.7) 100%
+    ) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(217, 122, 82, 0.3);
+    transition: all 0.3s ease;
+}
+
+html[data-bs-theme="light"] .btn-transparent:hover {
+    background: linear-gradient(135deg,
+        rgba(253, 243, 230, 0.95) 0%,
+        rgba(245, 184, 110, 0.2) 100%
+    ) !important;
+    border: 1px solid rgba(217, 122, 82, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(217, 122, 82, 0.2);
 }
 
 .loading-page {
@@ -108,29 +146,49 @@ html[data-bs-theme="light"] .btn-transparent {
 }
 
 html[data-bs-theme="light"] .color-theme-svg {
-    color: rgb(255, 255, 255);
-    background-color: var(--bs-light);
+    color: rgb(255, 249, 240);
+    background: linear-gradient(to bottom, 
+        rgb(255, 255, 255) 0%,
+        rgb(255, 249, 240) 50%,
+        rgb(253, 243, 230) 100%
+    );
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(0, 0, 0);
-    background-color: var(--bs-dark);
+    color: rgb(26, 15, 41);
+    background: linear-gradient(to bottom,
+        rgb(0, 0, 0) 0%,
+        rgb(26, 15, 41) 50%,
+        rgb(45, 27, 61) 100%
+    );
 }
 
 html[data-bs-theme="light"] .bg-light-dark {
-    background-color: rgb(var(--bs-light-rgb));
+    background: linear-gradient(to bottom,
+        rgb(255, 249, 240) 0%,
+        rgb(253, 243, 230) 100%
+    );
 }
 
 html[data-bs-theme="dark"] .bg-light-dark {
-    background-color: rgb(var(--bs-dark-rgb));
+    background: linear-gradient(to bottom,
+        rgb(26, 15, 41) 0%,
+        rgb(45, 27, 61) 100%
+    );
 }
 
 html[data-bs-theme="light"] .bg-white-black {
-    background-color: rgb(var(--bs-white-rgb));
+    background: linear-gradient(to bottom,
+        rgb(255, 255, 255) 0%,
+        rgb(255, 249, 240) 100%
+    );
 }
 
 html[data-bs-theme="dark"] .bg-white-black {
-    background-color: rgb(var(--bs-black-rgb));
+    background: linear-gradient(to bottom,
+        rgb(18, 12, 28) 0%,
+        rgb(26, 15, 41) 100%
+    );
 }
 
 .bg-cover-home {
@@ -199,13 +257,13 @@ svg {
     height: 3.5rem;
     min-width: 3.5rem;
     border-radius: 50%;
-    background: linear-gradient(135deg, #d4a574 0%, #c49a6c 100%);
+    background: linear-gradient(135deg, #d97a52 0%, #f09847 50%, #f5b86e 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.25rem;
-    box-shadow: 0 4px 15px rgba(196, 154, 108, 0.4);
+    box-shadow: 0 4px 20px rgba(217, 122, 82, 0.5), 0 0 40px rgba(240, 152, 71, 0.2);
     z-index: 2;
     position: relative;
 }
@@ -216,7 +274,7 @@ svg {
     top: 3.5rem;
     width: 3px;
     height: calc(100% + 1rem);
-    background: linear-gradient(to bottom, #d4a574, #e8d5c4);
+    background: linear-gradient(to bottom, #d97a52, #f09847, #fdd9a3);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -236,16 +294,20 @@ svg {
 }
 
 [data-bs-theme="light"] .timeline-content {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 249, 240, 0.9);
+    box-shadow: 0 4px 15px rgba(217, 122, 82, 0.1);
+    border: 1px solid rgba(217, 122, 82, 0.2);
 }
 
 [data-bs-theme="dark"] .timeline-content {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(42, 28, 50, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(217, 122, 82, 0.3);
 }
 
 .timeline-content h3 {
-    color: #c49a6c;
+    color: #d97a52;
+    text-shadow: 0 1px 3px rgba(217, 122, 82, 0.3);
 }
 
 @media (max-width: 480px) {
@@ -264,4 +326,51 @@ svg {
     .timeline-content {
         padding: 0.75rem 1rem;
     }
+}
+
+/* Image optimization for all images */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Carousel images optimization */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 500px;
+    image-rendering: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Background cover for desktop slideshow */
+.bg-cover-home {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent);
+}
+
+/* Smooth transitions for lazy loaded images */
+img[data-src] {
+    transition: opacity 0.5s ease-in-out;
+}
+
+img[data-src].loaded {
+    opacity: 1;
+}
+
+/* Sunset themed borders and shadows */
+.border-sunset {
+    border-color: rgba(217, 122, 82, 0.5) !important;
+}
+
+.shadow-sunset {
+    box-shadow: 0 4px 20px rgba(217, 122, 82, 0.3), 0 0 40px rgba(240, 152, 71, 0.1) !important;
 }

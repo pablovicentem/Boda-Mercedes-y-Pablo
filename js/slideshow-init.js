@@ -28,7 +28,10 @@ const initializeSlideshow = async () => {
             img.alt = 'bg';
             img.className = 'bg-cover-home';
             img.style.maskImage = 'none';
-            img.style.opacity = '30%';
+            img.style.opacity = '25%';
+            img.style.transition = 'opacity 1s ease-in-out';
+            img.loading = 'lazy';
+            img.decoding = 'async';
 
             slideDiv.appendChild(img);
             container.appendChild(slideDiv);
