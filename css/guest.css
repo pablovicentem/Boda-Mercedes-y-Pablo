@@ -27,6 +27,31 @@ html {
     object-fit: cover;
 }
 
+/* Navbar Icons - Better alignment with sections */
+#navbar-menu .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0 !important;
+    min-height: 4rem;
+}
+
+#navbar-menu .nav-link i {
+    font-size: 1.5rem;
+    display: block;
+    line-height: 1;
+}
+
+#navbar-menu .nav-link span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+    font-size: 0.7rem !important;
+}
+
 html[data-bs-theme="dark"] .btn-transparent {
     background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
     backdrop-filter: blur(0.5rem);
