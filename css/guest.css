@@ -71,9 +71,34 @@ html {
 
 /* Sunset gradient background for home section */
 #home {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 20%, #e94560 50%, #ff6b35 70%, #f7931e 85%, #fdb833 100%) !important;
+    background: linear-gradient(to bottom, 
+        #2d1810 0%,
+        #4a2c1f 15%,
+        #6b3f28 30%,
+        #c86432 50%,
+        #d97c4c 65%,
+        #e89655 80%,
+        #f0a860 100%
+    ) !important;
     background-attachment: fixed;
     position: relative;
+}
+
+/* Hide unnecessary sections for visual lightness */
+section:has(> div > h2:contains("Allah")) {
+    display: none;
+}
+
+section:has(> div > h2:contains("Nuestra Historia de Amor")) {
+    display: none;
+}
+
+#gallery {
+    display: none;
+}
+
+section:has(> div > h2:contains("Mensajes")) {
+    display: none;
 }
 
 html[data-bs-theme="dark"] .btn-transparent {
