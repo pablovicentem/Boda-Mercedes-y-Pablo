@@ -52,6 +52,30 @@ html {
     font-size: 0.7rem !important;
 }
 
+/* Responsive couple photos */
+@media screen and (max-width: 768px) {
+    #bride img[alt="Mercedes"],
+    #bride img[alt="Pablo"] {
+        width: 8rem !important;
+        height: 8rem !important;
+    }
+    
+    #bride h2.font-esthetic[style*="1.5rem"] {
+        font-size: 1.25rem !important;
+    }
+    
+    #bride p[style*="1rem"] {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Sunset gradient background for home section */
+#home {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 20%, #e94560 50%, #ff6b35 70%, #f7931e 85%, #fdb833 100%) !important;
+    background-attachment: fixed;
+    position: relative;
+}
+
 html[data-bs-theme="dark"] .btn-transparent {
     background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
     backdrop-filter: blur(0.5rem);
