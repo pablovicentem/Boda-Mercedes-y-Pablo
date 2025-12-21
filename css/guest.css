@@ -78,11 +78,16 @@ html {
 /* Elegant sunset gradient background for home section */
 #home {
     background: linear-gradient(to bottom, 
-        #f5f0eb 0%,
-        #ede5dc 25%,
-        #e8d5c4 50%,
-        #dcc5b0 75%,
-        #d4b5a0 100%
+        #1a1832 0%,
+        #2d2440 15%,
+        #5b3a70 30%,
+        #7d5ba6 45%,
+        #b85c8f 55%,
+        #d97aa0 65%,
+        #e88b6f 75%,
+        #f4a460 85%,
+        #f7c873 95%,
+        #fdd89f 100%
     ) !important;
     background-attachment: fixed;
     position: relative;
@@ -95,42 +100,42 @@ section:has(> div > h2:contains("Mensajes")) {
 
 html[data-bs-theme="dark"] .btn-transparent {
     background: linear-gradient(135deg, 
-        rgba(74, 47, 84, 0.6) 0%,
-        rgba(112, 67, 99, 0.5) 100%
+        rgba(91, 58, 112, 0.6) 0%,
+        rgba(125, 91, 166, 0.5) 100%
     ) !important;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(217, 122, 82, 0.3);
+    border: 1px solid rgba(232, 139, 111, 0.3);
     transition: all 0.3s ease;
 }
 
 html[data-bs-theme="dark"] .btn-transparent:hover {
     background: linear-gradient(135deg, 
-        rgba(112, 67, 99, 0.7) 0%,
-        rgba(168, 93, 94, 0.6) 100%
+        rgba(125, 91, 166, 0.7) 0%,
+        rgba(184, 92, 143, 0.6) 100%
     ) !important;
-    border: 1px solid rgba(217, 122, 82, 0.5);
+    border: 1px solid rgba(232, 139, 111, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(217, 122, 82, 0.3);
+    box-shadow: 0 4px 15px rgba(232, 139, 111, 0.3);
 }
 
 html[data-bs-theme="light"] .btn-transparent {
     background: linear-gradient(135deg,
-        rgba(255, 249, 240, 0.8) 0%,
-        rgba(253, 243, 230, 0.7) 100%
+        rgba(254, 240, 217, 0.8) 0%,
+        rgba(253, 216, 159, 0.7) 100%
     ) !important;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(217, 122, 82, 0.3);
+    border: 1px solid rgba(232, 139, 111, 0.3);
     transition: all 0.3s ease;
 }
 
 html[data-bs-theme="light"] .btn-transparent:hover {
     background: linear-gradient(135deg,
-        rgba(253, 243, 230, 0.95) 0%,
-        rgba(245, 184, 110, 0.2) 100%
+        rgba(253, 216, 159, 0.95) 0%,
+        rgba(247, 200, 115, 0.8) 100%
     ) !important;
-    border: 1px solid rgba(217, 122, 82, 0.5);
+    border: 1px solid rgba(232, 139, 111, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(217, 122, 82, 0.2);
+    box-shadow: 0 4px 15px rgba(232, 139, 111, 0.2);
 }
 
 .loading-page {
@@ -142,29 +147,49 @@ html[data-bs-theme="light"] .btn-transparent:hover {
 }
 
 html[data-bs-theme="light"] .color-theme-svg {
-    color: rgb(255, 255, 255);
-    background: rgb(250, 247, 243);
+    color: rgb(253, 216, 159);
+    background: linear-gradient(to bottom, 
+        rgb(255, 255, 255) 0%,
+        rgb(254, 240, 217) 50%,
+        rgb(253, 216, 159) 100%
+    );
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(40, 35, 30);
-    background: rgb(30, 28, 25);
+    color: rgb(45, 36, 64);
+    background: linear-gradient(to bottom,
+        rgb(26, 24, 50) 0%,
+        rgb(45, 36, 64) 50%,
+        rgb(91, 58, 112) 100%
+    );
 }
 
 html[data-bs-theme="light"] .bg-light-dark {
-    background: rgb(248, 246, 243);
+    background: linear-gradient(to bottom,
+        rgb(254, 248, 237) 0%,
+        rgb(253, 240, 217) 100%
+    );
 }
 
 html[data-bs-theme="dark"] .bg-light-dark {
-    background: rgb(35, 33, 30);
+    background: linear-gradient(to bottom,
+        rgb(26, 24, 50) 0%,
+        rgb(45, 36, 64) 100%
+    );
 }
 
 html[data-bs-theme="light"] .bg-white-black {
-    background: rgb(255, 255, 255);
+    background: linear-gradient(to bottom,
+        rgb(255, 255, 255) 0%,
+        rgb(254, 248, 237) 100%
+    );
 }
 
 html[data-bs-theme="dark"] .bg-white-black {
-    background: rgb(25, 23, 20);
+    background: linear-gradient(to bottom,
+        rgb(45, 36, 64) 0%,
+        rgb(91, 58, 112) 100%
+    );
 }
 
 .bg-cover-home {
@@ -233,13 +258,13 @@ svg {
     height: 3.5rem;
     min-width: 3.5rem;
     border-radius: 50%;
-    background: linear-gradient(135deg, #c9a68a 0%, #b89878 100%);
+    background: linear-gradient(135deg, #e88b6f 0%, #f4a460 50%, #f7c873 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.25rem;
-    box-shadow: 0 2px 10px rgba(184, 152, 120, 0.3);
+    box-shadow: 0 3px 12px rgba(232, 139, 111, 0.4), 0 0 20px rgba(244, 164, 96, 0.2);
     z-index: 2;
     position: relative;
 }
@@ -250,7 +275,7 @@ svg {
     top: 3.5rem;
     width: 3px;
     height: calc(100% + 1rem);
-    background: linear-gradient(to bottom, #c9a68a, #d4b5a0);
+    background: linear-gradient(to bottom, #e88b6f, #f4a460, #fdd89f);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -270,20 +295,20 @@ svg {
 }
 
 [data-bs-theme="light"] .timeline-content {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(166, 137, 104, 0.2);
+    background: rgba(254, 248, 237, 0.9);
+    box-shadow: 0 2px 10px rgba(232, 139, 111, 0.1);
+    border: 1px solid rgba(232, 139, 111, 0.2);
 }
 
 [data-bs-theme="dark"] .timeline-content {
-    background: rgba(50, 45, 40, 0.6);
+    background: rgba(45, 36, 64, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(166, 137, 104, 0.3);
+    border: 1px solid rgba(232, 139, 111, 0.3);
 }
 
 .timeline-content h3 {
-    color: #a68968;
-    text-shadow: none;
+    color: #e88b6f;
+    text-shadow: 0 1px 2px rgba(232, 139, 111, 0.2);
 }
 
 @media (max-width: 480px) {
