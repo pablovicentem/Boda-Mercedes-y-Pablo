@@ -38,13 +38,7 @@ export const guest = (() => {
          */
         const pad = (num) => num < 10 ? `0${num}` : `${num}`;
 
-        // Elements for welcome page (Spanish format)
-        const dayWelcome = document.getElementById('day-welcome');
-        const hourWelcome = document.getElementById('hour-welcome');
-        const minuteWelcome = document.getElementById('minute-welcome');
-        const secondWelcome = document.getElementById('second-welcome');
-
-        // Elements for home page (original format)
+        // Elements for home page (Spanish format: meses, días, horas, minutos)
         const day = document.getElementById('day');
         const hour = document.getElementById('hour');
         const minute = document.getElementById('minute');
@@ -53,23 +47,17 @@ export const guest = (() => {
         const updateCountdown = () => {
             const distance = Math.abs(count - Date.now());
 
-            // Calculate for welcome page (meses, días, horas, minutos)
+            // Calculate months, days, hours, minutes (Spanish format)
             const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
             const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-            // Update welcome page if elements exist
-            if (dayWelcome) dayWelcome.textContent = pad(months);
-            if (hourWelcome) hourWelcome.textContent = pad(days);
-            if (minuteWelcome) minuteWelcome.textContent = pad(hours);
-            if (secondWelcome) secondWelcome.textContent = pad(minutes);
-
-            // Update home page if elements exist (original format: días, horas, minutos, segundos)
-            if (day) day.textContent = pad(Math.floor(distance / (1000 * 60 * 60 * 24)));
-            if (hour) hour.textContent = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            if (minute) minute.textContent = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-            if (second) second.textContent = pad(Math.floor((distance % (1000 * 60)) / 1000));
+            // Update home page displays
+            if (day) day.textContent = pad(months);
+            if (hour) hour.textContent = pad(days);
+            if (minute) minute.textContent = pad(hours);
+            if (second) second.textContent = pad(minutes);
 
             util.timeOut(updateCountdown, 1000 - (Date.now() % 1000));
         };

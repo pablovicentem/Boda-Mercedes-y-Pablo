@@ -118,6 +118,23 @@
                     <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.jpeg" alt="bg" class="position-absolute opacity-25 top-50 start-50 translate-middle bg-cover-home">
 
                     <div class="position-relative text-center bg-overlay-auto" style="background-color: unset;">
+                        <div class="border rounded-pill shadow py-2 px-4 mt-2 mb-4">
+                            <div class="row justify-content-center">
+                                <div class="col-2 p-1">
+                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="day">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Meses</small>
+                                </div>
+                                <div class="col-2 p-1">
+                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="hour">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Días</small>
+                                </div>
+                                <div class="col-2 p-1">
+                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="minute">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Horas</small>
+                                </div>
+                                <div class="col-2 p-1">
+                                    <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="second">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Minutos</small>
+                                </div>
+                            </div>
+                        </div>
+
                         <h1 class="font-esthetic pt-5 pb-4 fw-medium" style="font-size: 2.25rem;">Undangan Pernikahan</h1>
 
                         <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.jpeg" alt="bg" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
@@ -627,34 +644,11 @@
     <div class="loading-page bg-white-black" id="welcome" style="opacity: 0;">
         <div class="d-flex justify-content-center align-items-center vh-100 overflow-y-auto">
             <div class="d-flex flex-column text-center">
-                <h1 class="font-esthetic pt-5 pb-4 fw-medium" style="font-size: 2.25rem;">Undangan Pernikahan</h1>
+                <h2 class="font-esthetic mb-4" style="font-size: 2.25rem;">Bienvenidos a la boda de</h2>
 
                 <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.jpeg" alt="background" class="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto">
 
                 <h2 class="font-esthetic mb-4" style="font-size: 2.25rem;">Mercedes &amp; Pablo</h2>
-                <p class="my-2" style="font-size: 1.25rem;">Sábado, 25 de abril de 2026</p>
-
-                <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1" style="font-size: 0.825rem;">
-                    <i class="fa-solid fa-calendar-check me-2"></i>Save Google Calendar
-                </button>
-
-                <div class="border rounded-pill shadow py-2 px-4 mt-4 mb-4">
-                    <div class="row justify-content-center">
-                        <div class="col-2 p-1">
-                            <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="day-welcome">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Meses</small>
-                        </div>
-                        <div class="col-2 p-1">
-                            <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="hour-welcome">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Días</small>
-                        </div>
-                        <div class="col-2 p-1">
-                            <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="minute-welcome">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Horas</small>
-                        </div>
-                        <div class="col-2 p-1">
-                            <p class="d-inline m-0 p-0" style="font-size: 1.25rem;" id="second-welcome">0</p><small class="ms-1 me-0 my-0 p-0 d-inline">Minutos</small>
-                        </div>
-                    </div>
-                </div>
-
                 <div id="guest-name" data-message="Para el aprecio de Uds."></div>
 
                 <button type="button" class="btn btn-light shadow rounded-4 mt-3 mx-auto" onclick="undangan.guest.open(this)"><i class="fa-solid fa-envelope-open fa-bounce me-2"></i>Abrir Invitación</button>
