@@ -102,6 +102,21 @@ html {
     ) !important;
     background-attachment: fixed;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Asegurar que la sección home se ajuste bien en cualquier dispositivo */
+@media screen and (max-width: 576px) {
+    #home {
+        min-height: 100vh;
+        padding: 0 !important;
+    }
+    
+    #home .position-relative {
+        width: 100%;
+    }
 }
 
 /* Hide unnecessary sections for visual lightness */

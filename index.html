@@ -118,42 +118,41 @@
                 <section id="home" class="bg-light-dark position-relative overflow-hidden p-0 m-0">
                     <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.jpeg" alt="bg" loading="lazy" class="position-absolute opacity-25 top-50 start-50 translate-middle bg-cover-home sunset-optimized">
 
-                    <div class="position-relative text-center bg-overlay-auto" style="background-color: unset;">
-                        <h2 class="font-esthetic my-4 pt-5" style="font-size: 2.5rem;">Mercedes &amp; Pablo</h2>
+                    <div class="position-relative text-center bg-overlay-auto px-3" style="background-color: unset; padding-top: 2rem; padding-bottom: 2rem;">
+                        <h2 class="font-esthetic mb-3" style="font-size: clamp(2rem, 8vw, 2.5rem); margin-top: 1.5rem;">Mercedes &amp; Pablo</h2>
 
-                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.jpeg" alt="bg" loading="lazy" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-4 border-sunset-light shadow-sunset my-4 mx-auto cursor-pointer sunset-optimized" style="width: 180px; height: 180px;">
+                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.jpeg" alt="bg" loading="lazy" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-4 border-sunset-light shadow-sunset mx-auto cursor-pointer sunset-optimized" style="width: clamp(140px, 40vw, 180px); height: clamp(140px, 40vw, 180px); margin-top: 1rem; margin-bottom: 1rem;">
 
-                        <p class="my-3" style="font-size: 1.3rem; font-weight: 500;">Sábado, 25 de abril de 2026</p>
+                        <p class="mb-3" style="font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 500;">Sábado, 25 de abril de 2026</p>
 
-                        <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1 mb-3" style="font-size: 0.825rem;">
+                        <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1 mb-3" style="font-size: clamp(0.75rem, 3vw, 0.825rem);">
                             <i class="fa-solid fa-calendar-check me-2"></i>Save Google Calendar
                         </button>
 
-                        <div class="border rounded-pill shadow py-3 px-3 px-sm-4 mt-3 mb-4" style="font-size: 0.9rem;">
-                            <div class="row justify-content-center g-2 g-sm-3">
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0" style="font-size: 1.5rem; font-weight: 600;" id="day">0</p><br><small class="d-block" style="font-size: 0.75rem; margin-top: 0.25rem;">Días</small>
+                        <div class="border rounded-pill shadow mx-auto" style="max-width: 500px; padding: clamp(0.75rem, 3vw, 1rem) clamp(0.5rem, 2vw, 1.5rem); margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <div class="row justify-content-center g-2">
+                                <div class="col-3">
+                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="day">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Días</small>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0" style="font-size: 1.5rem; font-weight: 600;" id="hour">0</p><br><small class="d-block" style="font-size: 0.75rem; margin-top: 0.25rem;">Horas</small>
+                                <div class="col-3">
+                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="hour">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Horas</small>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0" style="font-size: 1.5rem; font-weight: 600;" id="minute">0</p><br><small class="d-block" style="font-size: 0.75rem; margin-top: 0.25rem;">Min</small>
+                                <div class="col-3">
+                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="minute">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Min</small>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p class="d-inline m-0" style="font-size: 1.5rem; font-weight: 600;" id="second">0</p><br><small class="d-block" style="font-size: 0.75rem; margin-top: 0.25rem;">Seg</small>
+                                <div class="col-3">
+                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="second">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Seg</small>
                                 </div>
                             </div>
                         </div>
-                        </div>
 
-                        <div class="d-flex justify-content-center align-items-center mt-4 mb-2" style="overflow: visible;">
+                        <div class="d-flex justify-content-center align-items-center" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">
                             <div class="mouse-animation border border-secondary border-2 rounded-5 px-2 py-1 opacity-50" style="height: auto;">
                                 <div class="scroll-animation rounded-4 bg-secondary"></div>
                             </div>
                         </div>
 
-                        <p class="pb-4 m-0 text-secondary" style="font-size: 0.825rem;">Scroll Down</p>
+                        <p class="m-0 text-secondary" style="font-size: clamp(0.75rem, 3vw, 0.825rem); padding-bottom: 2rem;">Scroll Down</p>
                     </div>
                 </section>
 
@@ -359,54 +358,18 @@
 
                 <!-- Gallery -->
                 <!-- Attendance Form -->
-                <section class="bg-light-dark pb-3" id="attendance-form">
+                <section class="bg-light-dark pb-4" id="attendance-form">
                     <div class="container text-center">
-                        <h2 class="font-esthetic pt-4 mb-4" style="font-size: 2.5rem;">¿Vendrás?</h2>
+                        <h2 class="font-esthetic pt-4 mb-3" style="font-size: 2.5rem;">¿Vendrás?</h2>
                         <p class="mb-4 px-3" style="font-size: 1rem; line-height: 1.6;">Por favor, confirma tu asistencia a través del siguiente formulario:</p>
 
-                        <div class="bg-theme-auto rounded-4 shadow p-4 mx-4 mt-4 text-start" data-aos="fade-up" data-aos-duration="2500">
-                            <form id="attendance-form">
-                                <div class="mb-3">
-                                    <label for="guestName" class="form-label">Nombre completo</label>
-                                    <input type="text" class="form-control" id="guestName" placeholder="Tu nombre" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="guestEmail" class="form-label">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="guestEmail" placeholder="tu@email.com" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="guestPhone" class="form-label">Teléfono (opcional)</label>
-                                    <input type="tel" class="form-control" id="guestPhone" placeholder="+34 XXX XX XX XX">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">¿Confirmas tu asistencia?</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="attendance" id="attendanceYes" value="yes" required>
-                                        <label class="form-check-label" for="attendanceYes">
-                                            Sí, iré 🎉
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="attendance" id="attendanceNo" value="no" required>
-                                        <label class="form-check-label" for="attendanceNo">
-                                            No podré asistir 😢
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="guestMessage" class="form-label">Mensaje para los novios (opcional)</label>
-                                    <textarea class="form-control" id="guestMessage" rows="3" placeholder="Tus buenos deseos..."></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-outline-auto w-100 rounded-pill shadow">Enviar confirmación</button>
-                            </form>
+                        <div class="my-4" data-aos="fade-up" data-aos-duration="1500">
+                            <a href="https://forms.gle/KaSnJPBT5gV9Rs1y6" target="_blank" class="btn btn-lg btn-outline-auto rounded-pill shadow-lg px-5 py-3" style="font-size: 1.1rem;">
+                                <i class="fa-solid fa-clipboard-check me-2"></i>Confirmar Asistencia
+                            </a>
                         </div>
 
-                        <p class="mt-4 small text-muted">Tus datos serán usados solo para confirmar tu asistencia al evento.</p>
+                        <p class="mt-4 px-3" style="font-size: 0.9rem; opacity: 0.8;">Se abrirá el formulario de Google Forms para confirmar tu asistencia.</p>
                     </div>
                 </section>
 
