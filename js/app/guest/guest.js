@@ -45,19 +45,29 @@ export const guest = (() => {
         const second = document.getElementById('second');
 
         const updateCountdown = () => {
-            const distance = Math.abs(count - Date.now());
+            const now = Date.now();
+            const distance = count - now;
 
-            // Calculate months, days, hours, minutes (Spanish format)
-            const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
-            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            // Si ya pasó la fecha, mostrar ceros
+            if (distance < 0) {
+                if (day) day.textContent = '00';
+                if (hour) hour.textContent = '00';
+                if (minute) minute.textContent = '00';
+                if (second) second.textContent = '00';
+                return;
+            }
+
+            // Calcular días, horas, minutos y segundos correctamente
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Update home page displays
-            if (day) day.textContent = pad(months);
-            if (hour) hour.textContent = pad(days);
-            if (minute) minute.textContent = pad(hours);
-            if (second) second.textContent = pad(minutes);
+            // Actualizar display
+            if (day) day.textContent = pad(days);
+            if (hour) hour.textContent = pad(hours);
+            if (minute) minute.textContent = pad(minutes);
+            if (second) second.textContent = pad(seconds);
 
             util.timeOut(updateCountdown, 1000 - (Date.now() % 1000));
         };

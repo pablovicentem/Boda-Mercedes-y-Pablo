@@ -62,16 +62,27 @@ html {
 @media screen and (max-width: 768px) {
     #bride img[alt="Mercedes"],
     #bride img[alt="Pablo"] {
-        width: 8rem !important;
-        height: 8rem !important;
+        width: 10rem !important;
+        height: 10rem !important;
     }
     
-    #bride h2.font-esthetic[style*="1.5rem"] {
-        font-size: 1.25rem !important;
+    #bride h2.font-esthetic {
+        font-size: 1.5rem !important;
     }
     
     #bride p[style*="1rem"] {
         font-size: 0.9rem !important;
+    }
+    
+    /* Mejorar contador en móvil */
+    #home .border.rounded-pill {
+        padding: 0.75rem 1rem !important;
+    }
+    
+    /* Ajustar foto principal en home para móvil */
+    #home .img-center-crop {
+        width: 150px !important;
+        height: 150px !important;
     }
 }
 
