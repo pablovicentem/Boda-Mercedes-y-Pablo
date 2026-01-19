@@ -126,11 +126,11 @@ section:has(> div > h2:contains("Mensajes")) {
 
 html[data-bs-theme="dark"] .btn-transparent {
     background: linear-gradient(135deg, 
-        rgba(107, 26, 42, 0.6) 0%,
-        rgba(139, 38, 53, 0.5) 100%
+        rgba(30, 30, 35, 0.6) 0%,
+        rgba(35, 35, 40, 0.5) 100%
     ) !important;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(232, 139, 111, 0.3);
+    border: 1px solid rgba(100, 100, 110, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -182,11 +182,11 @@ html[data-bs-theme="light"] .color-theme-svg {
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(74, 14, 30);
+    color: rgb(25, 25, 30);
     background: linear-gradient(to bottom,
-        rgb(45, 10, 26) 0%,
-        rgb(74, 14, 30) 50%,
-        rgb(107, 26, 42) 100%
+        rgb(20, 20, 25) 0%,
+        rgb(25, 25, 30) 50%,
+        rgb(30, 30, 35) 100%
     );
 }
 
@@ -199,8 +199,8 @@ html[data-bs-theme="light"] .bg-light-dark {
 
 html[data-bs-theme="dark"] .bg-light-dark {
     background: linear-gradient(to bottom,
-        rgb(45, 10, 26) 0%,
-        rgb(74, 14, 30) 100%
+        rgb(20, 20, 25) 0%,
+        rgb(25, 25, 30) 100%
     );
 }
 
@@ -213,8 +213,8 @@ html[data-bs-theme="light"] .bg-white-black {
 
 html[data-bs-theme="dark"] .bg-white-black {
     background: linear-gradient(to bottom,
-        rgb(74, 14, 30) 0%,
-        rgb(107, 26, 42) 100%
+        rgb(25, 25, 30) 0%,
+        rgb(30, 30, 35) 100%
     );
 }
 

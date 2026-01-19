@@ -30,13 +30,13 @@ svg>path {
 
 html[data-bs-theme="dark"] .navbar {
     background: linear-gradient(to right,
-        rgba(45, 10, 26, 0.85) 0%,
-        rgba(74, 14, 30, 0.85) 50%,
-        rgba(107, 26, 42, 0.85) 100%
+        rgba(20, 20, 25, 0.90) 0%,
+        rgba(25, 25, 30, 0.90) 50%,
+        rgba(30, 30, 35, 0.90) 100%
     ) !important;
     backdrop-filter: blur(12px) saturate(150%);
-    border-bottom: 1px solid rgba(232, 139, 111, 0.3);
-    box-shadow: 0 2px 15px rgba(232, 139, 111, 0.2);
+    border-bottom: 1px solid rgba(100, 100, 110, 0.3);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
 html[data-bs-theme="light"] .navbar {
@@ -51,8 +51,8 @@ html[data-bs-theme="light"] .navbar {
 }
 
 html[data-bs-theme="dark"] .text-theme-auto {
-    color: rgb(253, 216, 159);
-    text-shadow: 0 1px 2px rgba(232, 139, 111, 0.2);
+    color: rgb(220, 220, 225);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 html[data-bs-theme="light"] .text-theme-auto {
@@ -60,14 +60,14 @@ html[data-bs-theme="light"] .text-theme-auto {
 }
 
 html[data-bs-theme="dark"] .nav-link {
-    color: rgba(253, 216, 159, 0.8);
+    color: rgba(200, 200, 210, 0.8);
     transition: color 0.3s ease;
 }
 
 html[data-bs-theme="dark"] .nav-link:hover,
 html[data-bs-theme="dark"] .nav-link.active {
-    color: rgba(247, 200, 115, 1);
-    text-shadow: 0 0 10px rgba(247, 200, 115, 0.4);
+    color: rgba(232, 139, 111, 1);
+    text-shadow: 0 0 10px rgba(232, 139, 111, 0.4);
 }
 
 html[data-bs-theme="light"] .nav-link {
@@ -82,7 +82,7 @@ html[data-bs-theme="light"] .nav-link.active {
 }
 
 html[data-bs-theme="dark"] .bg-theme-auto {
-    background-color: rgb(74, 14, 30);
+    background-color: rgb(25, 25, 30);
 }
 
 html[data-bs-theme="light"] .bg-theme-auto {
@@ -139,8 +139,8 @@ html[data-bs-theme="light"] .btn-outline-auto:hover {
 
 html[data-bs-theme="dark"] .bg-overlay-auto {
     background: linear-gradient(135deg,
-        rgba(45, 10, 26, 0.85) 0%,
-        rgba(107, 26, 42, 0.80) 100%
+        rgba(20, 20, 25, 0.85) 0%,
+        rgba(30, 30, 35, 0.80) 100%
     );
     backdrop-filter: blur(10px);
 }
