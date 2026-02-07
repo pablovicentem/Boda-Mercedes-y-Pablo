@@ -86,25 +86,20 @@ html {
     }
 }
 
-/* Elegant burgundy red sunset gradient background for home section */
+/* Modern pastel background for home section */
 #home {
-    background: linear-gradient(to bottom, 
-        #2d0a1a 0%,
-        #4a0e1e 12%,
-        #6b1a2a 25%,
-        #8b2635 37%,
-        #a8384a 50%,
-        #c75760 62%,
-        #e88b6f 72%,
-        #f4a460 82%,
-        #f7c873 92%,
-        #fdd89f 100%
+    background: linear-gradient(135deg, 
+        #f5ede4 0%,
+        #f9f3ed 30%,
+        #fff5f0 60%,
+        #fffbf8 100%
     ) !important;
     background-attachment: fixed;
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 /* Asegurar que la sección home se ajuste bien en cualquier dispositivo */

@@ -119,41 +119,33 @@
                 <section id="home" class="bg-light-dark position-relative overflow-hidden p-0 m-0" role="region" aria-label="Inicio">
                     <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.webp" data-srcset="./assets/images/std.webp 1x, ./assets/images/std.jpeg 1x" alt="bg" loading="lazy" class="position-absolute opacity-25 top-50 start-50 translate-middle bg-cover-home sunset-optimized">
 
-                    <div class="position-relative text-center bg-overlay-auto px-3" style="background-color: unset; padding-top: 2rem; padding-bottom: 2rem;">
-                        <h2 class="font-esthetic mb-3" style="font-size: clamp(2rem, 8vw, 2.5rem); margin-top: 1.5rem;">Mercedes &amp; Pablo</h2>
+                    <div class="position-relative text-center px-3" style="padding-top: 2rem; padding-bottom: 2rem; width: 100%; max-width: 600px; margin: 0 auto;">
+                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.webp" data-srcset="./assets/images/std.webp 1x, ./assets/images/std.jpeg 1x" alt="Mercedes y Pablo" loading="lazy" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-4 border-sunset-light shadow-sunset mx-auto cursor-pointer sunset-optimized" style="width: clamp(220px, 65vw, 320px); height: clamp(220px, 65vw, 320px); margin-top: 1rem; margin-bottom: 2rem;">
 
-                        <img src="./assets/images/placeholder.webp" data-src="./assets/images/std.webp" data-srcset="./assets/images/std.webp 1x, ./assets/images/std.jpeg 1x" alt="bg" loading="lazy" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-4 border-sunset-light shadow-sunset mx-auto cursor-pointer sunset-optimized" style="width: clamp(140px, 40vw, 180px); height: clamp(140px, 40vw, 180px); margin-top: 1rem; margin-bottom: 1rem;">
+                        <h2 class="font-esthetic mb-2" style="font-size: clamp(2rem, 8vw, 2.5rem);">Mercedes &amp; Pablo</h2>
 
-                        <p class="mb-3" style="font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 500;">Sábado, 25 de abril de 2026</p>
+                        <p class="mb-3" style="font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 400; color: #b8968c;">Sábado, 25 de abril de 2026</p>
 
-                        <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1 mb-3" style="font-size: clamp(0.75rem, 3vw, 0.825rem);">
-                            <i class="fa-solid fa-calendar-check me-2"></i>Save Google Calendar
-                        </button>
-
-                        <div class="border rounded-pill shadow mx-auto" style="max-width: 500px; padding: clamp(0.75rem, 3vw, 1rem) clamp(0.5rem, 2vw, 1.5rem); margin-top: 1rem; margin-bottom: 1.5rem;">
-                            <div class="row justify-content-center g-2">
-                                <div class="col-3">
-                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="day">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Días</small>
+                        <div style="max-width: 400px; margin: 2rem auto 1.5rem; padding: 1.25rem; background: rgba(255, 245, 240, 0.7); backdrop-filter: blur(10px); border-radius: 20px; border: 1px solid rgba(232, 168, 154, 0.2);">
+                            <div class="row justify-content-center g-3">
+                                <div class="col-3 text-center">
+                                    <p style="font-size: 1.5rem; font-weight: 600; color: #e8a89a; margin-bottom: 0.25rem;" id="day">0</p>
+                                    <small style="font-size: 0.85rem; color: #b8968c;">Días</small>
                                 </div>
-                                <div class="col-3">
-                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="hour">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Horas</small>
+                                <div class="col-3 text-center">
+                                    <p style="font-size: 1.5rem; font-weight: 600; color: #e8a89a; margin-bottom: 0.25rem;" id="hour">0</p>
+                                    <small style="font-size: 0.85rem; color: #b8968c;">Horas</small>
                                 </div>
-                                <div class="col-3">
-                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="minute">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Min</small>
-                                </div>
-                                <div class="col-3">
-                                    <p class="d-inline m-0" style="font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600;" id="second">0</p><br><small class="d-block" style="font-size: clamp(0.65rem, 2.5vw, 0.75rem); margin-top: 0.25rem;">Seg</small>
+                                <div class="col-3 text-center">
+                                    <p style="font-size: 1.5rem; font-weight: 600; color: #e8a89a; margin-bottom: 0.25rem;" id="minute">0</p>
+                                    <small style="font-size: 0.85rem; color: #b8968c;">Min</small>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-center align-items-center" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">
-                            <div class="mouse-animation border border-secondary border-2 rounded-5 px-2 py-1 opacity-50" style="height: auto;">
-                                <div class="scroll-animation rounded-4 bg-secondary"></div>
-                            </div>
-                        </div>
-
-                        <p class="m-0 text-secondary" style="font-size: clamp(0.75rem, 3vw, 0.825rem); padding-bottom: 2rem;">Scroll Down</p>
+                        <a href="#bride" class="mt-2 d-inline-block" style="color: #b8968c; text-decoration: none; font-size: 0.95rem;">
+                            <i class="fa-solid fa-chevron-down" style="animation: bounce 2s infinite;"></i>
+                        </a>
                     </div>
                 </section>
 

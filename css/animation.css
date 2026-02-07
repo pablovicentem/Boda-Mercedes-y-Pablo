@@ -48,7 +48,9 @@
         transform: translateY(0.5rem);
     }
 }
-
+.bounce {
+    animation: bounce 2s infinite;
+}
 .animate-love {
     animation: love 5s ease-in-out infinite;
     filter: none;

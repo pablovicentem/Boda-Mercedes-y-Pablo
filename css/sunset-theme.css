@@ -4,36 +4,32 @@
  */
 
 :root {
-    /* Sunset Color Palette - Red Burgundy Sunset */
-    --sunset-deep-burgundy: #2d0a1a;
-    --sunset-burgundy: #4a0e1e;
-    --sunset-dark-red: #6b1a2a;
-    --sunset-red: #8b2635;
-    --sunset-intense-red: #a8384a;
-    --sunset-red-coral: #c75760;
-    --sunset-coral: #e88b6f;
-    --sunset-orange: #f4a460;
-    --sunset-gold: #f7c873;
-    --sunset-amber: #fdd89f;
-    --sunset-cream: #fef0d9;
-    --sunset-light: #fff8ed;
+    /* Modern Wedding Palette - Blush Pink & Sage Elegance */
+    --sunset-deep-burgundy: #f5ede4;
+    --sunset-burgundy: #f9f3ed;
+    --sunset-dark-red: #e8d5c4;
+    --sunset-red: #d9b8a8;
+    --sunset-intense-red: #c9a896;
+    --sunset-red-coral: #d4a5a0;
+    --sunset-coral: #e8a89a;
+    --sunset-orange: #e899a3;
+    --sunset-gold: #f5b8c3;
+    --sunset-amber: #f9cad5;
+    --sunset-cream: #fff5f0;
+    --sunset-light: #fffbf8;
     
     /* Gradients */
     --gradient-sunset: linear-gradient(135deg, 
-        var(--sunset-coral) 0%, 
-        var(--sunset-orange) 50%, 
-        var(--sunset-gold) 100%);
+        #e8a89a 0%, 
+        #f5b8c3 50%, 
+        #f9cad5 100%);
     
     --gradient-twilight: linear-gradient(to bottom,
-        var(--sunset-deep-burgundy) 0%,
-        var(--sunset-burgundy) 20%,
-        var(--sunset-dark-red) 40%,
-        var(--sunset-red) 50%,
-        var(--sunset-intense-red) 60%,
-        var(--sunset-red-coral) 70%,
-        var(--sunset-coral) 80%,
-        var(--sunset-orange) 90%,
-        var(--sunset-gold) 100%);
+        #f5ede4 0%,
+        #f9f3ed 15%,
+        #f5f0e8 30%,
+        #fff5f0 50%,
+        #fffbf8 100%);
 }
 
 /* Font Esthetic with Sunset Theme */
