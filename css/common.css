@@ -165,3 +165,14 @@ html[data-bs-theme="light"] .bg-overlay-auto {
 .gif-image {
     max-height: 10rem;
 }
+
+/* Focus styles for keyboard users */
+:focus-visible {
+    outline: 3px solid rgba(232, 139, 111, 0.9);
+    outline-offset: 2px;
+}
+
+/* Ensure buttons and interactive controls present visible focus */
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    box-shadow: 0 0 0 4px rgba(232, 139, 111, 0.12);
+}

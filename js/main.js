@@ -93,4 +93,4 @@ document.querySelectorAll('.gallery-item').forEach(item => {
     });
 });
 
-console.log('🎉 Wedding website loaded successfully!');
+// Log removed for production cleanliness
