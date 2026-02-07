@@ -88,13 +88,7 @@ html {
 
 /* Vibrant sunset background for home section */
 #home {
-    background: linear-gradient(135deg, 
-        #ff9a76 0%,
-        #ff8fab 25%,
-        #f776ba 50%,
-        #d86db8 75%,
-        #a855c7 100%
-    ) !important;
+    background: url('./assets/images/_MG_1633.webp') center/cover no-repeat !important;
     background-attachment: fixed;
     position: relative;
     min-height: 100vh;
@@ -103,15 +97,51 @@ html {
     justify-content: center;
 }
 
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+}
+
+#home > * {
+    position: relative;
+    z-index: 1;
+}
+
 /* Asegurar que la sección home se ajuste bien en cualquier dispositivo */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     #home {
         min-height: 100vh;
         padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
     #home .position-relative {
         width: 100%;
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #home {
+        min-height: 100vh;
+    }
+    
+    #home .position-relative {
+        padding: 1rem !important;
     }
 }
 
