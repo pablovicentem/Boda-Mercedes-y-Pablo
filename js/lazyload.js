@@ -1,4 +1,4 @@
-// Lightweight lazy loader using existing data-src / data-srcset attributes
+// Robust lazy loader with error handling
 (function() {
     const onLoad = (img) => {
         img.classList.add('is-loaded');
@@ -8,29 +8,33 @@
 
     const loadImage = (img) => {
         const src = img.getAttribute('data-src');
-        const srcset = img.getAttribute('data-srcset') || img.getAttribute('data-src');
+        
+        if (!src) return;
 
-        if (src) {
+        // Set the image source
+        const newImg = new Image();
+        
+        newImg.onload = function() {
             img.src = src;
-        }
-
-        if (srcset) {
-            img.srcset = srcset;
-        }
-
-        img.loading = img.loading || 'lazy';
-        img.fetchPriority = img.fetchPriority || 'low';
-
-        if (img.complete) {
             onLoad(img);
-        } else {
-            img.addEventListener('load', () => onLoad(img), { once: true });
-            img.addEventListener('error', () => onLoad(img), { once: true });
-        }
+        };
+        
+        newImg.onerror = function() {
+            // If data-src fails, try srcset
+            const srcset = img.getAttribute('data-srcset');
+            if (srcset && srcset !== src) {
+                img.srcset = srcset;
+            }
+            img.src = src; // Still set src even if it might fail
+            onLoad(img);
+        };
+        
+        newImg.src = src;
     };
 
     const init = () => {
         const images = Array.from(document.querySelectorAll('img[data-src]'));
+        
         if ('IntersectionObserver' in window) {
             const io = new IntersectionObserver((entries, obs) => {
                 entries.forEach((entry) => {
@@ -40,20 +44,24 @@
                     }
                 });
             }, {
-                rootMargin: '200px 0px',
+                rootMargin: '300px 0px',
                 threshold: 0.01
             });
 
             images.forEach((img) => io.observe(img));
         } else {
-            // Fallback: load all images
+            // Fallback: load all images immediately
             images.forEach(loadImage);
         }
     };
 
+    // Run on DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
+    
+    // Also run on window load for safety
+    window.addEventListener('load', init);
 })();
