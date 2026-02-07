@@ -86,13 +86,14 @@ html {
     }
 }
 
-/* Modern pastel background for home section */
+/* Vibrant sunset background for home section */
 #home {
     background: linear-gradient(135deg, 
-        #f5ede4 0%,
-        #f9f3ed 30%,
-        #fff5f0 60%,
-        #fffbf8 100%
+        #ff9a76 0%,
+        #ff8fab 25%,
+        #f776ba 50%,
+        #d86db8 75%,
+        #a855c7 100%
     ) !important;
     background-attachment: fixed;
     position: relative;
