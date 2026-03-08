@@ -350,7 +350,18 @@ export const guest = (() => {
         const params = new URLSearchParams(window.location.search);
 
         window.addEventListener('resize', util.debounce(slide));
-        document.addEventListener('undangan.progress.done', () => booting());
+
+        let booted = false;
+        const safeBoot = () => {
+            if (!booted) {
+                booted = true;
+                booting();
+            }
+        };
+        document.addEventListener('undangan.progress.done', safeBoot);
+        document.addEventListener('undangan.progress.invalid', safeBoot);
+        setTimeout(safeBoot, 8000);
+
         document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
         document.getElementById('button-modal-download').addEventListener('click', (e) => {
             img.download(e.currentTarget.getAttribute('data-src'));
