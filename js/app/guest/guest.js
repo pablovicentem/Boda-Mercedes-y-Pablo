@@ -38,11 +38,10 @@ export const guest = (() => {
          */
         const pad = (num) => num < 10 ? `0${num}` : `${num}`;
 
-        // Elements for home page (Spanish format: meses, días, horas, minutos)
+        // Elements for home page (Spanish format: días, horas, minutos)
         const day = document.getElementById('day');
         const hour = document.getElementById('hour');
         const minute = document.getElementById('minute');
-        const second = document.getElementById('second');
 
         const updateCountdown = () => {
             const now = Date.now();
@@ -53,23 +52,20 @@ export const guest = (() => {
                 if (day) day.textContent = '00';
                 if (hour) hour.textContent = '00';
                 if (minute) minute.textContent = '00';
-                if (second) second.textContent = '00';
                 return;
             }
 
-            // Calcular días, horas, minutos y segundos correctamente
+            // Calcular días, horas y minutos correctamente
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Actualizar display
             if (day) day.textContent = pad(days);
             if (hour) hour.textContent = pad(hours);
             if (minute) minute.textContent = pad(minutes);
-            if (second) second.textContent = pad(seconds);
 
-            util.timeOut(updateCountdown, 1000 - (Date.now() % 1000));
+            util.timeOut(updateCountdown, 60000 - (Date.now() % 60000));
         };
 
         util.timeOut(updateCountdown);

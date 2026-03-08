@@ -99,7 +99,7 @@ html {
 
 /* Vibrant sunset background for home section */
 #home {
-    background: url('./assets/images/_MG_1633.webp') center/cover no-repeat !important;
+    background: url('../assets/images/atardecer.webp') center/cover no-repeat !important;
     background-attachment: fixed;
     position: relative;
     min-height: 100vh;
