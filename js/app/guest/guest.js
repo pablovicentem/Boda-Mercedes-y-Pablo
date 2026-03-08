@@ -307,7 +307,6 @@ export const guest = (() => {
      */
     const booting = async () => {
         animateSvg();
-        countDownDate();
         showGuestName();
         modalImageClick();
         normalizeArabicFont();
@@ -332,6 +331,9 @@ export const guest = (() => {
      * @returns {void}
      */
     const pageLoaded = () => {
+        // Iniciar countdown inmediatamente, sin depender de la carga de recursos
+        countDownDate();
+
         lang.init();
         offline.init();
         comment.init();
