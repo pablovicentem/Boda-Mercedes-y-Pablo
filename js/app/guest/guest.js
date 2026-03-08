@@ -30,7 +30,8 @@ export const guest = (() => {
      * @returns {void}
      */
     const countDownDate = () => {
-        const count = (new Date(document.body.getAttribute('data-time').replace(' ', 'T'))).getTime();
+        // Fecha de la boda: 25 de abril de 2026 a las 13:00 (hora local España)
+        const count = new Date(2026, 3, 25, 13, 0, 0).getTime();
 
         /**
          * @param {number} num 
@@ -65,10 +66,10 @@ export const guest = (() => {
             if (hour) hour.textContent = pad(hours);
             if (minute) minute.textContent = pad(minutes);
 
-            util.timeOut(updateCountdown, 60000 - (Date.now() % 60000));
+            setTimeout(updateCountdown, 60000 - (Date.now() % 60000));
         };
 
-        util.timeOut(updateCountdown);
+        updateCountdown();
     };
 
     /**
