@@ -26,11 +26,23 @@
         // Si hay error durante la carga, registrarlo en la consola
         console.error('Error loading guest module:', error);
         
-        // Plan B: ocultar el indicador de carga y mostrar el contenido de todas formas
-        // para que el usuario no vea una pantalla vacía
+        // Plan B: mostrar la welcome page con el botón para abrir la invitación
         const loading = document.getElementById('loading');
+        const welcome = document.getElementById('welcome');
         const root = document.getElementById('root');
+
+        if (welcome) {
+            welcome.style.opacity = '1';
+            // Configurar el botón de abrir para que funcione sin el módulo completo
+            const btn = welcome.querySelector('button');
+            if (btn) {
+                btn.onclick = function() {
+                    btn.disabled = true;
+                    if (welcome) welcome.style.display = 'none';
+                    if (root) root.classList.remove('opacity-0');
+                };
+            }
+        }
         if (loading) loading.style.display = 'none';
-        if (root) root.classList.remove('opacity-0');
     }
 })();
