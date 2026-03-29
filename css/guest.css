@@ -438,3 +438,277 @@ img[data-src].loaded {
 .shadow-sunset {
     box-shadow: 0 4px 20px rgba(217, 122, 82, 0.3), 0 0 40px rgba(240, 152, 71, 0.1) !important;
 }
+
+/* ===== Welcome Page ===== */
+#welcome {
+    overflow: hidden;
+}
+
+.welcome-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+html[data-bs-theme="light"] .welcome-backdrop {
+    background: linear-gradient(160deg,
+        #fef8ed 0%,
+        #fdf0d9 20%,
+        #fde8c5 40%,
+        #fce0b5 60%,
+        #fdd89f 80%,
+        #f9cad5 100%
+    );
+}
+
+html[data-bs-theme="dark"] .welcome-backdrop {
+    background: linear-gradient(160deg,
+        rgb(20, 20, 25) 0%,
+        rgb(25, 22, 28) 30%,
+        rgb(35, 25, 30) 60%,
+        rgb(30, 30, 35) 100%
+    );
+}
+
+.welcome-backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(232, 139, 111, 0.12) 0%, transparent 70%);
+}
+
+.welcome-content {
+    animation: welcomeFadeIn 1.2s ease-out;
+}
+
+.welcome-ornament {
+    display: flex;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+@keyframes welcomeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Welcome invite button */
+html[data-bs-theme="light"] .btn-welcome-invite {
+    background: linear-gradient(135deg, #e88b6f 0%, #f4a460 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+}
+
+html[data-bs-theme="light"] .btn-welcome-invite:hover {
+    background: linear-gradient(135deg, #d97a5e 0%, #e89350 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(232, 139, 111, 0.4) !important;
+}
+
+html[data-bs-theme="dark"] .btn-welcome-invite {
+    background: linear-gradient(135deg, #a8384a 0%, #e88b6f 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+}
+
+html[data-bs-theme="dark"] .btn-welcome-invite:hover {
+    background: linear-gradient(135deg, #c04458 0%, #f4a460 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(244, 164, 96, 0.4) !important;
+}
+
+/* ===== Elegant Section Dividers ===== */
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    gap: 1rem;
+}
+
+.divider-line {
+    flex: 1;
+    max-width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(232, 139, 111, 0.5) 50%, transparent 100%);
+}
+
+.divider-ornament {
+    color: #e88b6f;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    animation: dividerPulse 3s ease-in-out infinite;
+}
+
+html[data-bs-theme="dark"] .divider-ornament {
+    color: #f4a460;
+}
+
+@keyframes dividerPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.15); }
+}
+
+/* Smooth section background transitions */
+section {
+    position: relative;
+}
+
+/* Fade gradient between bg-white-black and bg-light-dark sections */
+html[data-bs-theme="light"] #bride {
+    background: linear-gradient(to bottom,
+        rgb(255, 255, 255) 0%,
+        rgb(254, 250, 243) 50%,
+        rgb(254, 248, 237) 100%
+    );
+}
+
+html[data-bs-theme="light"] #wedding-date {
+    background: linear-gradient(to bottom,
+        rgb(254, 248, 237) 0%,
+        rgb(255, 252, 247) 50%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+html[data-bs-theme="light"] #attendance-form {
+    background: linear-gradient(to bottom,
+        rgb(254, 248, 237) 0%,
+        rgb(253, 244, 228) 50%,
+        rgb(254, 248, 237) 100%
+    );
+}
+
+html[data-bs-theme="dark"] #bride {
+    background: linear-gradient(to bottom,
+        rgb(25, 25, 30) 0%,
+        rgb(27, 27, 32) 50%,
+        rgb(30, 30, 35) 100%
+    );
+}
+
+html[data-bs-theme="dark"] #wedding-date {
+    background: linear-gradient(to bottom,
+        rgb(30, 30, 35) 0%,
+        rgb(27, 27, 32) 50%,
+        rgb(25, 25, 30) 100%
+    );
+}
+
+html[data-bs-theme="dark"] #attendance-form {
+    background: linear-gradient(to bottom,
+        rgb(20, 20, 25) 0%,
+        rgb(22, 22, 27) 50%,
+        rgb(25, 25, 30) 100%
+    );
+}
+
+/* ===== Two Parallel Photo Strips ===== */
+.photo-strips-container {
+    display: flex;
+    gap: 0.75rem;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    position: relative;
+    mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
+}
+
+.photo-strip {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-strip-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.photo-strip-item {
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(232, 139, 111, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-strip-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 24px rgba(232, 139, 111, 0.3);
+    z-index: 2;
+}
+
+.photo-strip-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Scrolling animation - UP */
+@keyframes stripScrollUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* Scrolling animation - DOWN */
+@keyframes stripScrollDown {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.strip-scroll-up {
+    animation: stripScrollUp 30s linear infinite;
+}
+
+.strip-scroll-down {
+    animation: stripScrollDown 30s linear infinite;
+}
+
+.photo-strips-container:hover .strip-scroll-up,
+.photo-strips-container:hover .strip-scroll-down {
+    animation-play-state: paused;
+}
+
+@media (max-width: 480px) {
+    .photo-strips-container {
+        height: 380px;
+    }
+    .photo-strip-item img {
+        height: 170px;
+    }
+}
