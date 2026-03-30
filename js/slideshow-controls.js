@@ -1,11 +1,13 @@
 /**
  * ARCHIVO: slideshow-controls.js
- * PROPÓSITO: Controles interactivos para el carrusel de fotos
+ * PROPÓSITO: Carrusel infinito de fotos con scroll/swipe
  * 
- * Permite:
- * - Pausar/Reanudar animación al pasar el cursor
- * - Desplazamiento manual con scroll/swipe INFINITO
- * - Click en foto para ver en grande (modal)
+ * Características:
+ * - Bucle infinito automático
+ * - Scroll con rueda del ratón
+ * - Swipe vertical en móvil
+ * - Click en foto = Modal
+ * - Pausar al pasar cursor
  */
 
 (function() {
@@ -14,7 +16,7 @@
         
         const container = document.querySelector('.photo-strips-container');
         if (!container) {
-            console.warn('❌ photo-strips-container not found');
+            console.warn('❌ photo-strips-container no encontrado');
             return;
         }
         console.log('✅ photo-strips-container encontrado');
@@ -23,176 +25,164 @@
         const rightTrack = container.querySelector('.strip-scroll-down');
 
         if (!leftTrack || !rightTrack) {
-            console.warn('❌ Photo strip tracks not found');
+            console.warn('❌ Photo strip tracks no encontrados');
             return;
         }
-        console.log('✅ Photo strip tracks encontrados');
 
-        let isAnimationPaused = false;
-        let touchStartY = 0;
-        let lastScrollTime = 0;
+        const leftImages = Array.from(leftTrack.querySelectorAll('img'));
+        const rightImages = Array.from(rightTrack.querySelectorAll('img'));
+        const itemHeight = 232; // altura de imagen (220) + gap (12)
+        const totalItems = 8; // Items visibles en cada columna
 
-        // Variables para rastrear posición manual
-        let leftScrollOffset = 0;
-        let rightScrollOffset = 0;
+        console.log(`✅ ${leftImages.length} imágenes en track izquierdo`);
+        console.log(`✅ ${rightImages.length} imágenes en track derecho`);
 
-        const itemHeight = 232; // height(220) + gap(12)
-        const scrollCooldown = 80; // ms entre scrolls
-        const scrollStep = itemHeight; // Desplazar un item a la vez
-
-        /**
-         * Normalizar scroll infinito
-         * Cuando el scroll salga del rango, lo reinicia en la otra punta
-         */
-        const normalizeScroll = () => {
-            const maxOffset = itemHeight * 8; // Altura de 8 items
-            
-            // Normalizar left track
-            if (leftScrollOffset <= -maxOffset) {
-                leftScrollOffset += maxOffset;
-            } else if (leftScrollOffset > 0) {
-                leftScrollOffset -= maxOffset;
-            }
-            
-            // Normalizar right track (va en dirección opuesta)
-            if (rightScrollOffset <= -maxOffset) {
-                rightScrollOffset += maxOffset;
-            } else if (rightScrollOffset > 0) {
-                rightScrollOffset -= maxOffset;
-            }
+        // Estado del carrusel
+        let state = {
+            isAnimationPaused: false,
+            leftPosition: 0,    // Posición actual en píxeles
+            rightPosition: 0,
+            leftIndex: 0,       // Índice del item actual
+            rightIndex: 0,
+            isDragging: false,
+            touchStart: 0,
+            lastScrollTime: 0
         };
 
         /**
-         * Actualizar transformaciones
+         * Actualizar posición visual con normalización de bucle
          */
-        const updateTransforms = () => {
-            leftTrack.style.transform = `translateY(${leftScrollOffset}px)`;
-            rightTrack.style.transform = `translateY(${rightScrollOffset}px)`;
-            normalizeScroll();
+        const updatePosition = () => {
+            const maxPhysicalHeight = itemHeight * totalItems;
+            
+            // Normalizar posiciones para mantener dentro de rango visible
+            state.leftPosition = state.leftPosition % maxPhysicalHeight;
+            state.rightPosition = state.rightPosition % maxPhysicalHeight;
+            
+            // Si negativo, ajustar al final
+            if (state.leftPosition < 0) {
+                state.leftPosition = maxPhysicalHeight + (state.leftPosition % maxPhysicalHeight);
+            }
+            if (state.rightPosition < 0) {
+                state.rightPosition = maxPhysicalHeight + (state.rightPosition % maxPhysicalHeight);
+            }
+            
+            leftTrack.style.transform = `translateY(${-state.leftPosition}px)`;
+            rightTrack.style.transform = `translateY(${-state.rightPosition}px)`;
         };
 
         /**
-         * Pausar/Reanudar animación en hover
+         * Desplazar N items
+         */
+        const moveItems = (direction) => {
+            const distance = itemHeight * direction;
+            state.leftPosition += distance;
+            state.rightPosition -= distance;
+            state.leftIndex = (state.leftIndex + direction) % totalItems;
+            state.rightIndex = (state.rightIndex - direction + totalItems) % totalItems;
+            
+            console.log(`🔄 Movimiento: L=${state.leftPosition}px, R=${state.rightPosition}px, LIdx=${state.leftIndex}, RIdx=${state.rightIndex}`);
+            updatePosition();
+        };
+
+        /**
+         * Pausar animación automática
          */
         container.addEventListener('mouseenter', () => {
-            console.log('🖱️ Mouse enter - pausando animación');
-            isAnimationPaused = true;
+            console.log('🖱️ Cursor entrado - animación pausada');
+            state.isAnimationPaused = true;
             leftTrack.style.animationPlayState = 'paused';
             rightTrack.style.animationPlayState = 'paused';
         });
 
+        /**
+         * Reanudar animación automática
+         */
         container.addEventListener('mouseleave', () => {
-            console.log('🖱️ Mouse leave - reanudando animación');
-            isAnimationPaused = false;
+            console.log('🖱️ Cursor salió - animación reanudada');
+            state.isAnimationPaused = false;
             leftTrack.style.animationPlayState = 'running';
             rightTrack.style.animationPlayState = 'running';
-            
-            // Resetear scroll al salir
-            leftScrollOffset = 0;
-            rightScrollOffset = 0;
-            updateTransforms();
         });
 
         /**
-         * Scroll interactivo con rueda del ratón
+         * Scroll con rueda del ratón
          */
         container.addEventListener('wheel', (e) => {
-            if (!isAnimationPaused) return;
+            if (!state.isAnimationPaused) return;
             
             const now = Date.now();
-            if (now - lastScrollTime < scrollCooldown) return;
-            lastScrollTime = now;
+            if (now - state.lastScrollTime < 150) return; // Cooldown
+            state.lastScrollTime = now;
             
             e.preventDefault();
             
             const direction = e.deltaY > 0 ? 1 : -1;
-            const scrollAmount = direction * scrollStep;
-            
-            leftScrollOffset += scrollAmount;
-            rightScrollOffset -= scrollAmount;
-            
-            updateTransforms();
-            console.log('🔄 Scroll - Left:', leftScrollOffset, 'Right:', rightScrollOffset);
+            moveItems(direction);
         }, { passive: false });
 
         /**
-         * Soporte para touchscreen (swipe vertical)
+         * Swipe vertical en móvil
          */
-        let touchStartTime = 0;
-
         container.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-            touchStartTime = Date.now();
-            console.log('👆 Touch start en Y:', touchStartY);
+            state.touchStart = e.touches[0].clientY;
+            console.log('👆 Touch start');
             
-            if (!isAnimationPaused) {
-                isAnimationPaused = true;
+            if (!state.isAnimationPaused) {
+                state.isAnimationPaused = true;
                 leftTrack.style.animationPlayState = 'paused';
                 rightTrack.style.animationPlayState = 'paused';
             }
         }, { passive: true });
 
         container.addEventListener('touchmove', (e) => {
-            if (!isAnimationPaused) return;
+            if (!state.isAnimationPaused) return;
             
             const touchY = e.touches[0].clientY;
-            const diff = touchStartY - touchY;
+            const diff = state.touchStart - touchY;
             
-            // Sensibilidad: cada 10px de movimiento = 1 item
-            const scrollAmount = Math.floor(diff / 50) * scrollStep;
-            
-            if (Math.abs(scrollAmount) > 0) {
-                leftScrollOffset = scrollAmount;
-                rightScrollOffset = -scrollAmount;
-                updateTransforms();
-            }
-        }, { passive: true });
-
-        container.addEventListener('touchend', () => {
-            const touchEndTime = Date.now();
-            const touchDuration = touchEndTime - touchStartTime;
-            
-            // Si fue un tap rápido (menos de 200ms) sin movimiento, ignorar
-            if (touchDuration > 200) {
-                console.log('👆 Touch end - swipe detectado');
+            // Cambiar item cada 80px de movimiento
+            if (Math.abs(diff) > 80) {
+                const direction = diff > 0 ? 1 : -1;
+                moveItems(direction);
+                state.touchStart = touchY; // Reset para el próximo movimiento
             }
         }, { passive: true });
 
         /**
-         * Agregar funcionalidad de modal a las imágenes
+         * Click en imagen para modal
          */
-        const images = container.querySelectorAll('.photo-strip-item img');
-        console.log('✅ Encontradas', images.length, 'imágenes');
-        
-        images.forEach((img, idx) => {
-            img.style.cursor = 'pointer';
+        const setupImageClickHandlers = () => {
+            const allImages = container.querySelectorAll('.photo-strip-item img');
+            console.log(`✅ Configurando clicks en ${allImages.length} imágenes`);
             
-            // Usar addEventListener para mejor manejo
-            img.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                console.log('📸 Click en imagen', idx);
-                
-                // Función para abrir modal con reintentos
-                const openModal = () => {
-                    if (window.undangan && window.undangan.guest && window.undangan.guest.modal) {
-                        console.log('🔍 Abriendo modal');
-                        window.undangan.guest.modal(this);
-                    } else {
-                        console.warn('⚠️ undangan.guest.modal no disponible, reintentando...');
-                        setTimeout(openModal.bind(this), 300);
-                    }
-                };
-                
-                openModal.call(this);
+            allImages.forEach((img, idx) => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const attemptModal = (retries = 0) => {
+                        if (window.undangan?.guest?.modal) {
+                            console.log('🔍 Abriendo modal para imagen', idx);
+                            window.undangan.guest.modal(this);
+                        } else if (retries < 50) {
+                            setTimeout(() => attemptModal(retries + 1), 100);
+                        } else {
+                            console.error('❌ Modal no disponible');
+                        }
+                    };
+                    
+                    attemptModal();
+                });
             });
-        });
+        };
 
-        console.log('✅ Photo strip controls inicializados exitosamente');
+        setupImageClickHandlers();
+        console.log('✅ Photo strip controls inicializados');
     };
 
-    // Inicializar en múltiples puntos de tiempo para asegurar que funcione
+    // Esperar DOM
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(initPhotoStripControls, 200);
@@ -201,9 +191,7 @@
         setTimeout(initPhotoStripControls, 200);
     }
     
-    // También intentar cuando window load
     window.addEventListener('load', () => {
-        console.log('Window load disparado');
         setTimeout(initPhotoStripControls, 200);
     });
 })();
