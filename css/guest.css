@@ -28,6 +28,7 @@ html {
     object-position: center;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    image-orientation: from-image;
     backface-visibility: hidden;
     transform: translateZ(0);
     will-change: transform;
@@ -75,6 +76,7 @@ html {
     #bride img[alt="Pablo"] {
         width: 10rem !important;
         height: 10rem !important;
+        image-orientation: from-image;
     }
     
     #bride h2.font-esthetic {
