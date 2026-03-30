@@ -34,6 +34,14 @@ html {
     will-change: transform;
 }
 
+/* Específica corrección para Mercedes en Nosotros */
+#bride img[alt="Mercedes"],
+#bride img[data-src*="cewe"] {
+    image-orientation: from-image;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+}
+
 /* Navbar - Ensure it stays above all overlays */
 #navbar-menu {
     position: fixed !important;
