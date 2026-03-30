@@ -672,6 +672,13 @@ export const comment = (() => {
         pagination.init();
 
         comments = document.getElementById('comments');
+        
+        // Si no existe el elemento #comments, no continuar
+        if (!comments) {
+            console.warn('⚠️ Elemento #comments no encontrado - componente de comentarios deshabilitado');
+            return;
+        }
+        
         comments.addEventListener('undangan.comment.show', show);
 
         owns = storage('owns');

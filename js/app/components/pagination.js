@@ -162,6 +162,13 @@ export const pagination = (() => {
      */
     const init = () => {
         paginate = document.getElementById('pagination');
+        
+        // Si no existe el elemento #pagination, no continuar
+        if (!paginate) {
+            console.warn('⚠️ Elemento #pagination no encontrado - componente de comentarios deshabilitado');
+            return;
+        }
+        
         paginate.innerHTML = `
         <ul class="pagination mb-2 shadow-sm rounded-4">
             <li class="page-item disabled" id="previous">
