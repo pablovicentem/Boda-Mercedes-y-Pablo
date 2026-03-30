@@ -645,6 +645,12 @@ html[data-bs-theme="dark"] #attendance-form {
         black 92%,
         transparent 100%
     );
+    cursor: grab;
+    user-select: none;
+}
+
+.photo-strips-container:active {
+    cursor: grabbing;
 }
 
 .photo-strip {
