@@ -4,7 +4,7 @@
  * 
  * Permite:
  * - Pausar/Reanudar animación al pasar el cursor
- * - Desplazamiento manual con scroll/swipe
+ * - Desplazamiento manual con scroll/swipe INFINITO
  * - Click en foto para ver en grande (modal)
  */
 
@@ -37,8 +37,30 @@
         let rightScrollOffset = 0;
 
         const itemHeight = 232; // height(220) + gap(12)
-        const maxScroll = itemHeight * 8;
-        const scrollCooldown = 100; // ms entre scrolls
+        const scrollCooldown = 80; // ms entre scrolls
+        const scrollStep = itemHeight; // Desplazar un item a la vez
+
+        /**
+         * Normalizar scroll infinito
+         * Cuando el scroll salga del rango, lo reinicia en la otra punta
+         */
+        const normalizeScroll = () => {
+            const maxOffset = itemHeight * 8; // Altura de 8 items
+            
+            // Normalizar left track
+            if (leftScrollOffset <= -maxOffset) {
+                leftScrollOffset += maxOffset;
+            } else if (leftScrollOffset > 0) {
+                leftScrollOffset -= maxOffset;
+            }
+            
+            // Normalizar right track (va en dirección opuesta)
+            if (rightScrollOffset <= -maxOffset) {
+                rightScrollOffset += maxOffset;
+            } else if (rightScrollOffset > 0) {
+                rightScrollOffset -= maxOffset;
+            }
+        };
 
         /**
          * Actualizar transformaciones
@@ -46,6 +68,7 @@
         const updateTransforms = () => {
             leftTrack.style.transform = `translateY(${leftScrollOffset}px)`;
             rightTrack.style.transform = `translateY(${rightScrollOffset}px)`;
+            normalizeScroll();
         };
 
         /**
@@ -83,24 +106,24 @@
             e.preventDefault();
             
             const direction = e.deltaY > 0 ? 1 : -1;
-            const scrollAmount = direction * itemHeight;
+            const scrollAmount = direction * scrollStep;
             
-            leftScrollOffset = Math.max(-maxScroll, Math.min(0, leftScrollOffset + scrollAmount));
-            rightScrollOffset = Math.max(-maxScroll, Math.min(0, rightScrollOffset - scrollAmount));
+            leftScrollOffset += scrollAmount;
+            rightScrollOffset -= scrollAmount;
             
             updateTransforms();
             console.log('🔄 Scroll - Left:', leftScrollOffset, 'Right:', rightScrollOffset);
         }, { passive: false });
 
         /**
-         * Soporte para touchscreen (swipe)
+         * Soporte para touchscreen (swipe vertical)
          */
-        let touchMoving = false;
+        let touchStartTime = 0;
 
         container.addEventListener('touchstart', (e) => {
             touchStartY = e.touches[0].clientY;
-            touchMoving = false;
-            console.log('👆 Touch start');
+            touchStartTime = Date.now();
+            console.log('👆 Touch start en Y:', touchStartY);
             
             if (!isAnimationPaused) {
                 isAnimationPaused = true;
@@ -115,19 +138,24 @@
             const touchY = e.touches[0].clientY;
             const diff = touchStartY - touchY;
             
-            if (Math.abs(diff) > 5) {
-                touchMoving = true;
-                const scrollAmount = (diff / 20); // Sensibilidad
-                
-                leftScrollOffset = Math.max(-maxScroll, Math.min(0, leftScrollOffset + scrollAmount));
-                rightScrollOffset = Math.max(-maxScroll, Math.min(0, rightScrollOffset - scrollAmount));
-                
+            // Sensibilidad: cada 10px de movimiento = 1 item
+            const scrollAmount = Math.floor(diff / 50) * scrollStep;
+            
+            if (Math.abs(scrollAmount) > 0) {
+                leftScrollOffset = scrollAmount;
+                rightScrollOffset = -scrollAmount;
                 updateTransforms();
             }
         }, { passive: true });
 
         container.addEventListener('touchend', () => {
-            console.log('👆 Touch end');
+            const touchEndTime = Date.now();
+            const touchDuration = touchEndTime - touchStartTime;
+            
+            // Si fue un tap rápido (menos de 200ms) sin movimiento, ignorar
+            if (touchDuration > 200) {
+                console.log('👆 Touch end - swipe detectado');
+            }
         }, { passive: true });
 
         /**
@@ -139,14 +167,14 @@
         images.forEach((img, idx) => {
             img.style.cursor = 'pointer';
             
-            // Reemplazar onclick con addEventListener para mejor manejo
+            // Usar addEventListener para mejor manejo
             img.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
                 console.log('📸 Click en imagen', idx);
                 
-                // Función para abrir modal
+                // Función para abrir modal con reintentos
                 const openModal = () => {
                     if (window.undangan && window.undangan.guest && window.undangan.guest.modal) {
                         console.log('🔍 Abriendo modal');
