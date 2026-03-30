@@ -4,7 +4,9 @@
  */
 
 (function() {
-    console.log('\n=== VERIFICACIÓN DE SETUP ===\n');
+    console.log('\n' + '='.repeat(50));
+    console.log('VERIFICACIÓN DEL SISTEMA DE GALERÍA');
+    console.log('='.repeat(50) + '\n');
     
     // Verificar modal-handler
     if (typeof window.openImageModal === 'function') {
@@ -16,7 +18,7 @@
     // Verificar que slideshow-controls.js intente inicializar
     setTimeout(() => {
         if (typeof window.undangan === 'undefined') {
-            console.warn('⚠️ window.undangan aún no está disponible (puede estar cargándose)');
+            console.warn('⚠️  window.undangan aún no está disponible (puede estar cargándose)');
         } else {
             console.log('✅ window.undangan disponible');
             if (window.undangan.guest && window.undangan.guest.modal) {
@@ -34,10 +36,25 @@
             console.log('✅ .photo-strips-container encontrado');
             const images = container.querySelectorAll('img');
             console.log(`✅ ${images.length} imágenes encontradas en el carrusel`);
+            console.log('💡 Tip: Pasa el cursor sobre el carrusel para pausar la animación');
+            console.log('💡 Tip: Usa la rueda del ratón para desplazarte entre fotos');
+            console.log('💡 Tip: Haz click en cualquier foto para verla en grande');
         } else {
             console.error('❌ .photo-strips-container NO encontrado');
         }
     }, 2000);
     
-    console.log('=== FIN VERIFICACIÓN ===\n');
+    // Verificar componentes de comentarios
+    setTimeout(() => {
+        const comments = document.getElementById('comments');
+        const pagination = document.getElementById('pagination');
+        if (!comments) {
+            console.log('ℹ️  Elemento #comments no encontrado (comentarios deshabilitados)');
+        }
+        if (!pagination) {
+            console.log('ℹ️  Elemento #pagination no encontrado (paginación deshabilitada)');
+        }
+    }, 2000);
+    
+    console.log('\n' + '='.repeat(50) + '\n');
 })();
