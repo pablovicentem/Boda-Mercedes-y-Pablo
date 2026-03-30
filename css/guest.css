@@ -663,6 +663,7 @@ html[data-bs-theme="dark"] #attendance-form {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    transition: transform 0.3s ease-out;
 }
 
 .photo-strip-item {
