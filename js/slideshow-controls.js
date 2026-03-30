@@ -50,25 +50,21 @@
         };
 
         /**
-         * Actualizar posición visual con normalización de bucle
+         * Actualizar posición visual con normalización correcta de bucle
          */
         const updatePosition = () => {
-            const maxPhysicalHeight = itemHeight * totalItems;
+            const maxPhysicalHeight = itemHeight * totalItems; // 1856px
             
-            // Normalizar posiciones para mantener dentro de rango visible
-            state.leftPosition = state.leftPosition % maxPhysicalHeight;
-            state.rightPosition = state.rightPosition % maxPhysicalHeight;
+            // Normalizar posiciones: asegurar que siempre estén entre 0 y maxPhysicalHeight
+            // Fórmula: ((x % max) + max) % max funciona correctamente con negativos
+            state.leftPosition = ((state.leftPosition % maxPhysicalHeight) + maxPhysicalHeight) % maxPhysicalHeight;
+            state.rightPosition = ((state.rightPosition % maxPhysicalHeight) + maxPhysicalHeight) % maxPhysicalHeight;
             
-            // Si negativo, ajustar al final
-            if (state.leftPosition < 0) {
-                state.leftPosition = maxPhysicalHeight + (state.leftPosition % maxPhysicalHeight);
-            }
-            if (state.rightPosition < 0) {
-                state.rightPosition = maxPhysicalHeight + (state.rightPosition % maxPhysicalHeight);
-            }
-            
+            // Aplicar transformación (negativo para scroll hacia arriba)
             leftTrack.style.transform = `translateY(${-state.leftPosition}px)`;
             rightTrack.style.transform = `translateY(${-state.rightPosition}px)`;
+            
+            console.log(`✨ Posición normalizada - L=${state.leftPosition}px, R=${state.rightPosition}px`);
         };
 
         /**
