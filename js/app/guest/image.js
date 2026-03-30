@@ -211,59 +211,11 @@ export const image = (() => {
             await runGroup((el) => el.hasAttribute('data-src'));
         }
 
-        // Fase 2: Imágenes normales (src)
-        await runGroup((el) => !el.hasAttribute('data-src'));
-    };
-
     /**
-     * FUNCIÓN: init
-     * PROPÓSITO: Inicializar el módulo de imágenes
+     * FUNCIÓN: download
+     * PROPÓSITO: Descargar una imagen como archivo
      * 
-     * @returns {object} API pública del módulo
-     */
-    const init = () => {
-        // Buscar todos los elementos <img> con clase 'photo'
-        images = document.querySelectorAll('img.photo');
-        
-        // Incrementar contador de progreso por cada imagen encontrada
-        Array.from(images).forEach(() => progress.add());
-        
-        // Inicializar el gestor de caché
-        c = cache('image');
-
-        // Retornar API pública
-        return {
-            load,
-        };
-    };
-
-    /**
-     * @returns {boolean}
-     */
-    const hasDataSrc = () => Array.from(images).some((i) => i.hasAttribute('data-src'));
-
-    /**
-     * @returns {Promise<void>}
-     */
-    const load = async () => {
-        const imgs = Array.from(images);
-
-        /**
-         * @param {function} filter 
-         * @returns {Promise<void>}
-         */
-        const runGroup = async (filter) => {
-            urlCache.length = 0;
-            imgs.filter(filter).forEach((el) => el.hasAttribute('data-src') ? getByFetch(el) : getByDefault(el));
-            await c.run(urlCache, progress.getAbort());
-        };
-
-        await runGroup((el) => el.hasAttribute('fetchpriority'));
-        await runGroup((el) => !el.hasAttribute('fetchpriority'));
-    };
-
-    /**
-     * @param {string} blobUrl 
+     * @param {string} blobUrl - URL del blob de la imagen
      * @returns {void}
      */
     const download = (blobUrl) => {
@@ -271,7 +223,10 @@ export const image = (() => {
     };
 
     /**
-     * @returns {object}
+     * FUNCIÓN: init
+     * PROPÓSITO: Inicializar el módulo de imágenes
+     * 
+     * @returns {object} API pública del módulo
      */
     const init = () => {
         c = cache('image').withForceCache();
