@@ -211,6 +211,10 @@ export const image = (() => {
             await runGroup((el) => el.hasAttribute('data-src'));
         }
 
+        // Fase 2: Imágenes normales (src)
+        await runGroup((el) => !el.hasAttribute('data-src'));
+    };
+
     /**
      * FUNCIÓN: download
      * PROPÓSITO: Descargar una imagen como archivo
