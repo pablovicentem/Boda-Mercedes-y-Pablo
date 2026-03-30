@@ -24,20 +24,21 @@
 
         if (!leftTrack || !rightTrack) {
             console.warn('❌ Photo strip tracks not found');
-            console.log('Left:', leftTrack, 'Right:', rightTrack);
             return;
         }
         console.log('✅ Photo strip tracks encontrados');
 
         let isAnimationPaused = false;
         let touchStartY = 0;
+        let lastScrollTime = 0;
 
         // Variables para rastrear posición manual
         let leftScrollOffset = 0;
         let rightScrollOffset = 0;
 
-        const itemHeight = 220 + 12; // height + gap
-        const maxScroll = itemHeight * 8; // Limitar scroll
+        const itemHeight = 232; // height(220) + gap(12)
+        const maxScroll = itemHeight * 8;
+        const scrollCooldown = 100; // ms entre scrolls
 
         /**
          * Actualizar transformaciones
@@ -55,7 +56,6 @@
             isAnimationPaused = true;
             leftTrack.style.animationPlayState = 'paused';
             rightTrack.style.animationPlayState = 'paused';
-            container.style.pointerEvents = 'auto';
         });
 
         container.addEventListener('mouseleave', () => {
@@ -74,35 +74,38 @@
          * Scroll interactivo con rueda del ratón
          */
         container.addEventListener('wheel', (e) => {
-            if (!isAnimationPaused) {
-                console.log('Wheel pero animación no pausada');
-                return;
-            }
+            if (!isAnimationPaused) return;
             
-            console.log('🔄 Scroll detectado:', e.deltaY);
+            const now = Date.now();
+            if (now - lastScrollTime < scrollCooldown) return;
+            lastScrollTime = now;
+            
             e.preventDefault();
             
-            const scrollAmount = e.deltaY > 0 ? itemHeight : -itemHeight;
+            const direction = e.deltaY > 0 ? 1 : -1;
+            const scrollAmount = direction * itemHeight;
             
             leftScrollOffset = Math.max(-maxScroll, Math.min(0, leftScrollOffset + scrollAmount));
             rightScrollOffset = Math.max(-maxScroll, Math.min(0, rightScrollOffset - scrollAmount));
             
             updateTransforms();
-            console.log('Nuevas posiciones - Left:', leftScrollOffset, 'Right:', rightScrollOffset);
+            console.log('🔄 Scroll - Left:', leftScrollOffset, 'Right:', rightScrollOffset);
         }, { passive: false });
 
         /**
          * Soporte para touchscreen (swipe)
          */
+        let touchMoving = false;
+
         container.addEventListener('touchstart', (e) => {
             touchStartY = e.touches[0].clientY;
-            console.log('👆 Touch start en Y:', touchStartY);
+            touchMoving = false;
+            console.log('👆 Touch start');
             
             if (!isAnimationPaused) {
                 isAnimationPaused = true;
                 leftTrack.style.animationPlayState = 'paused';
                 rightTrack.style.animationPlayState = 'paused';
-                console.log('👆 Animación pausada por touch');
             }
         }, { passive: true });
 
@@ -112,15 +115,14 @@
             const touchY = e.touches[0].clientY;
             const diff = touchStartY - touchY;
             
-            if (Math.abs(diff) > 15) {
-                const scrollAmount = (diff / 50) * itemHeight;
-                console.log('👆 Touch move - diff:', diff, 'scroll:', scrollAmount);
+            if (Math.abs(diff) > 5) {
+                touchMoving = true;
+                const scrollAmount = (diff / 20); // Sensibilidad
                 
                 leftScrollOffset = Math.max(-maxScroll, Math.min(0, leftScrollOffset + scrollAmount));
                 rightScrollOffset = Math.max(-maxScroll, Math.min(0, rightScrollOffset - scrollAmount));
                 
                 updateTransforms();
-                touchStartY = touchY;
             }
         }, { passive: true });
 
@@ -137,46 +139,43 @@
         images.forEach((img, idx) => {
             img.style.cursor = 'pointer';
             
-            // Soporte para onclick directo en HTML
+            // Reemplazar onclick con addEventListener para mejor manejo
             img.addEventListener('click', function(e) {
-                console.log('📸 Click en imagen', idx);
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Esperar a que undangan esté disponible
-                if (window.undangan && window.undangan.guest && window.undangan.guest.modal) {
-                    console.log('🔍 Abriendo modal');
-                    window.undangan.guest.modal(this);
-                } else {
-                    console.warn('⚠️ undangan.guest.modal no disponible aún');
-                    // Reintentar en 500ms
-                    setTimeout(() => {
-                        if (window.undangan && window.undangan.guest && window.undangan.guest.modal) {
-                            window.undangan.guest.modal(this);
-                        }
-                    }, 500);
-                }
+                console.log('📸 Click en imagen', idx);
+                
+                // Función para abrir modal
+                const openModal = () => {
+                    if (window.undangan && window.undangan.guest && window.undangan.guest.modal) {
+                        console.log('🔍 Abriendo modal');
+                        window.undangan.guest.modal(this);
+                    } else {
+                        console.warn('⚠️ undangan.guest.modal no disponible, reintentando...');
+                        setTimeout(openModal.bind(this), 300);
+                    }
+                };
+                
+                openModal.call(this);
             });
         });
 
         console.log('✅ Photo strip controls inicializados exitosamente');
     };
 
-    // Esperar a que el DOM esté completamente cargado
+    // Inicializar en múltiples puntos de tiempo para asegurar que funcione
     if (document.readyState === 'loading') {
-        console.log('DOM cargando... esperando DOMContentLoaded');
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('DOMContentLoaded disparado');
-            setTimeout(initPhotoStripControls, 100);
+            setTimeout(initPhotoStripControls, 200);
         });
     } else {
-        console.log('DOM ya cargado, inicializando ahora');
-        setTimeout(initPhotoStripControls, 100);
+        setTimeout(initPhotoStripControls, 200);
     }
     
-    // También intentar inicializar cuando window load
+    // También intentar cuando window load
     window.addEventListener('load', () => {
         console.log('Window load disparado');
-        setTimeout(initPhotoStripControls, 100);
+        setTimeout(initPhotoStripControls, 200);
     });
 })();
