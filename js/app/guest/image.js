@@ -238,15 +238,6 @@ export const image = (() => {
     };
 
     /**
-     * API PÚBLICA DEL MÓDULO
-     * Solo expone las funciones que otros módulos necesitan usar
-     */
-    return {
-        init,
-    };
-})();
-
-    /**
      * @returns {boolean}
      */
     const hasDataSrc = () => Array.from(images).some((i) => i.hasAttribute('data-src'));
@@ -294,6 +285,10 @@ export const image = (() => {
         };
     };
 
+    /**
+     * API PÚBLICA DEL MÓDULO
+     * Solo expone las funciones que otros módulos necesitan usar
+     */
     return {
         init,
     };
