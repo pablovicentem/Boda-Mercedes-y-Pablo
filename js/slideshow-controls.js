@@ -59,9 +59,13 @@
                 const items = Array.from(track.querySelectorAll('.photo-strip-item'));
                 items.forEach(item => {
                     const clone = item.cloneNode(true);
-                    // Re-attach click handler on cloned images
                     const img = clone.querySelector('img');
                     if (img) {
+                        // Load image directly (bypass lazy loading for clones)
+                        const realSrc = img.getAttribute('data-src');
+                        if (realSrc) {
+                            img.src = realSrc;
+                        }
                         img.style.cursor = 'pointer';
                         img.addEventListener('click', function(e) {
                             e.preventDefault();
@@ -84,6 +88,13 @@
 
             cloneItems(leftTrack);
             cloneItems(rightTrack);
+
+            // Also ensure original images are loaded (lazy loader may miss scrollable containers)
+            container.querySelectorAll('img[data-src]').forEach(img => {
+                if (!img.src || img.src.includes('data:image')) {
+                    img.src = img.getAttribute('data-src');
+                }
+            });
 
             // Half = original content height (before clones)
             const leftHalf = leftTrack.scrollHeight / 2;
