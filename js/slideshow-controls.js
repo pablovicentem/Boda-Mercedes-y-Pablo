@@ -21,13 +21,17 @@
         }
         console.log('✅ photo-strips-container encontrado');
 
-        // On mobile (<=768px), let native CSS scroll handle everything
+        // On mobile (<=768px), use native scroll + JS-driven auto-scroll
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
         if (isMobile) {
-            console.log('📱 Modo móvil: scroll nativo activado, controles JS deshabilitados');
-            // Still set up image click handlers for modal
+            console.log('📱 Modo móvil: scroll nativo + auto-scroll');
+
+            const leftStrip = container.querySelector('.photo-strip-left');
+            const rightStrip = container.querySelector('.photo-strip-right');
+
+            // Set up image click handlers
             const allImages = container.querySelectorAll('.photo-strip-item img');
-            allImages.forEach((img, idx) => {
+            allImages.forEach((img) => {
                 img.style.cursor = 'pointer';
                 img.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -44,6 +48,51 @@
                     attemptModal();
                 });
             });
+
+            if (!leftStrip || !rightStrip) return;
+
+            // Start right strip scrolled to the bottom so it scrolls up
+            requestAnimationFrame(() => {
+                rightStrip.scrollTop = rightStrip.scrollHeight - rightStrip.clientHeight;
+            });
+
+            let paused = false;
+            let resumeTimer = null;
+            const speed = 0.5; // px per frame
+
+            const pauseAutoScroll = () => {
+                paused = true;
+                clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(() => { paused = false; }, 2500);
+            };
+
+            // Pause on touch, resume after 2.5s of inactivity
+            [leftStrip, rightStrip].forEach(strip => {
+                strip.addEventListener('touchstart', pauseAutoScroll, { passive: true });
+                strip.addEventListener('touchmove', pauseAutoScroll, { passive: true });
+            });
+
+            // Auto-scroll loop: left goes down, right goes up
+            const autoScroll = () => {
+                if (!paused) {
+                    // Left strip: scroll down
+                    leftStrip.scrollTop += speed;
+                    // Loop: when reaching end, jump to start
+                    if (leftStrip.scrollTop >= leftStrip.scrollHeight - leftStrip.clientHeight) {
+                        leftStrip.scrollTop = 0;
+                    }
+
+                    // Right strip: scroll up
+                    rightStrip.scrollTop -= speed;
+                    // Loop: when reaching top, jump to end
+                    if (rightStrip.scrollTop <= 0) {
+                        rightStrip.scrollTop = rightStrip.scrollHeight - rightStrip.clientHeight;
+                    }
+                }
+                requestAnimationFrame(autoScroll);
+            };
+
+            requestAnimationFrame(autoScroll);
             return;
         }
 

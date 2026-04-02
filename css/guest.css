@@ -751,10 +751,6 @@ html[data-bs-theme="dark"] #attendance-form {
     }
     .photo-strip-track {
         transition: none;
-    }
-    /* Disable auto-scroll animations on mobile */
-    .strip-scroll-up,
-    .strip-scroll-down {
         animation: none !important;
         transform: none !important;
     }
