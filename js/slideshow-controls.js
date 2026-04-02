@@ -21,6 +21,32 @@
         }
         console.log('✅ photo-strips-container encontrado');
 
+        // On mobile (<=768px), let native CSS scroll handle everything
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+            console.log('📱 Modo móvil: scroll nativo activado, controles JS deshabilitados');
+            // Still set up image click handlers for modal
+            const allImages = container.querySelectorAll('.photo-strip-item img');
+            allImages.forEach((img, idx) => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const attemptModal = (retries = 0) => {
+                        if (window.undangan?.guest?.modal) {
+                            window.undangan.guest.modal(this);
+                        } else if (typeof openImageModal === 'function') {
+                            openImageModal(this);
+                        } else if (retries < 50) {
+                            setTimeout(() => attemptModal(retries + 1), 100);
+                        }
+                    };
+                    attemptModal();
+                });
+            });
+            return;
+        }
+
         const leftTrack = container.querySelector('.strip-scroll-up');
         const rightTrack = container.querySelector('.strip-scroll-down');
 

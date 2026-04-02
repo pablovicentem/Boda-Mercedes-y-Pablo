@@ -729,3 +729,33 @@ html[data-bs-theme="dark"] #attendance-form {
         height: 170px;
     }
 }
+
+/* Mobile: native touch scroll for photo strips */
+@media (max-width: 768px) {
+    .photo-strips-container {
+        overflow: visible;
+        cursor: default;
+    }
+    .photo-strip {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: y proximity;
+        scrollbar-width: none; /* Firefox */
+    }
+    .photo-strip::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    .photo-strip-item {
+        scroll-snap-align: start;
+    }
+    .photo-strip-track {
+        transition: none;
+    }
+    /* Disable auto-scroll animations on mobile */
+    .strip-scroll-up,
+    .strip-scroll-down {
+        animation: none !important;
+        transform: none !important;
+    }
+}
