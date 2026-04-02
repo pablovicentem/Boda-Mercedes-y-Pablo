@@ -51,9 +51,47 @@
 
             if (!leftStrip || !rightStrip) return;
 
-            // Start right strip scrolled to the bottom so it scrolls up
+            const leftTrack = leftStrip.querySelector('.photo-strip-track');
+            const rightTrack = rightStrip.querySelector('.photo-strip-track');
+
+            // Clone all items to create seamless infinite loop
+            const cloneItems = (track) => {
+                const items = Array.from(track.querySelectorAll('.photo-strip-item'));
+                items.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    // Re-attach click handler on cloned images
+                    const img = clone.querySelector('img');
+                    if (img) {
+                        img.style.cursor = 'pointer';
+                        img.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const attemptModal = (retries = 0) => {
+                                if (window.undangan?.guest?.modal) {
+                                    window.undangan.guest.modal(this);
+                                } else if (typeof openImageModal === 'function') {
+                                    openImageModal(this);
+                                } else if (retries < 50) {
+                                    setTimeout(() => attemptModal(retries + 1), 100);
+                                }
+                            };
+                            attemptModal();
+                        });
+                    }
+                    track.appendChild(clone);
+                });
+            };
+
+            cloneItems(leftTrack);
+            cloneItems(rightTrack);
+
+            // Half = original content height (before clones)
+            const leftHalf = leftTrack.scrollHeight / 2;
+            const rightHalf = rightTrack.scrollHeight / 2;
+
+            // Start right strip at the halfway point so it scrolls up
             requestAnimationFrame(() => {
-                rightStrip.scrollTop = rightStrip.scrollHeight - rightStrip.clientHeight;
+                rightStrip.scrollTop = rightHalf;
             });
 
             let paused = false;
@@ -77,16 +115,16 @@
                 if (!paused) {
                     // Left strip: scroll down
                     leftStrip.scrollTop += speed;
-                    // Loop: when reaching end, jump to start
-                    if (leftStrip.scrollTop >= leftStrip.scrollHeight - leftStrip.clientHeight) {
-                        leftStrip.scrollTop = 0;
+                    // Seamless loop: when past the clone boundary, jump back
+                    if (leftStrip.scrollTop >= leftHalf) {
+                        leftStrip.scrollTop -= leftHalf;
                     }
 
                     // Right strip: scroll up
                     rightStrip.scrollTop -= speed;
-                    // Loop: when reaching top, jump to end
+                    // Seamless loop: when past the top, jump to clone boundary
                     if (rightStrip.scrollTop <= 0) {
-                        rightStrip.scrollTop = rightStrip.scrollHeight - rightStrip.clientHeight;
+                        rightStrip.scrollTop += rightHalf;
                     }
                 }
                 requestAnimationFrame(autoScroll);
