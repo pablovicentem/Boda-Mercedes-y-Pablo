@@ -61,11 +61,6 @@
                     const clone = item.cloneNode(true);
                     const img = clone.querySelector('img');
                     if (img) {
-                        // Load image directly (bypass lazy loading for clones)
-                        const realSrc = img.getAttribute('data-src');
-                        if (realSrc) {
-                            img.src = realSrc;
-                        }
                         img.style.cursor = 'pointer';
                         img.addEventListener('click', function(e) {
                             e.preventDefault();
@@ -86,15 +81,28 @@
                 });
             };
 
+            // Force-load ALL images in the strips (originals + clones)
+            // IntersectionObserver misses these because they're inside overflow:auto containers
+            const forceLoadImages = (stripEl) => {
+                stripEl.querySelectorAll('img[data-src]').forEach(img => {
+                    const realSrc = img.getAttribute('data-src');
+                    if (realSrc) {
+                        img.src = realSrc;
+                        img.removeAttribute('data-src');
+                        img.classList.add('is-loaded');
+                    }
+                });
+            };
+
+            // Load originals first, then clone, then load clones
+            forceLoadImages(leftStrip);
+            forceLoadImages(rightStrip);
+
             cloneItems(leftTrack);
             cloneItems(rightTrack);
 
-            // Also ensure original images are loaded (lazy loader may miss scrollable containers)
-            container.querySelectorAll('img[data-src]').forEach(img => {
-                if (!img.src || img.src.includes('data:image')) {
-                    img.src = img.getAttribute('data-src');
-                }
-            });
+            forceLoadImages(leftStrip);
+            forceLoadImages(rightStrip);
 
             // Half = original content height (before clones)
             const leftHalf = leftTrack.scrollHeight / 2;
