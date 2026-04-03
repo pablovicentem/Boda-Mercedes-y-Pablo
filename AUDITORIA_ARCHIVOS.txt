@@ -1,0 +1,419 @@
+================================================================================
+  AUDITORÍA COMPLETA DEL REPOSITORIO - BODA MERCEDES Y PABLO
+  Fecha: 3 de abril de 2026
+  Análisis de cada archivo: función y si se puede eliminar
+================================================================================
+
+LEYENDA:
+  ✅ MANTENER - Archivo esencial para el funcionamiento
+  ⚠️  REVISAR - Archivo que podría eliminarse según uso
+  ❌ ELIMINAR - Archivo no utilizado o duplicado
+  📦 PESO - Tamaño del archivo o carpeta
+
+================================================================================
+1. ARCHIVOS RAÍZ
+================================================================================
+
+📄 .gitignore
+   Función: Define qué archivos ignorar en Git (node_modules, .DS_Store, etc.)
+   Estado: ✅ MANTENER
+   Razón: Necesario para control de versiones limpio
+   Peso: ~1KB
+
+📄 .nojekyll
+   Función: Indica a GitHub Pages que NO use Jekyll (procesador de sites)
+   Estado: ✅ MANTENER
+   Razón: Sin este archivo, GitHub Pages podría ignorar carpetas con _
+   Peso: 0KB (archivo vacío)
+
+📄 LICENSE
+   Función: Licencia del proyecto (legal)
+   Estado: ✅ MANTENER
+   Razón: Protección legal, buena práctica open source
+   Peso: ~1KB
+
+📄 README.md
+   Función: Portada del repositorio en GitHub, presentación del proyecto
+   Estado: ✅ MANTENER
+   Razón: Primera impresión cuando alguien ve tu repo
+   Peso: 3KB
+
+📄 index.html
+   Función: PÁGINA PRINCIPAL de la web - todo el HTML de la invitación
+   Estado: ✅ MANTENER - CRÍTICO
+   Razón: Es la web en sí misma
+   Peso: 44KB
+
+📄 init.js
+   Función: Punto de entrada JavaScript, carga módulos guest.js asincrónicamente
+   Estado: ✅ MANTENER - CRÍTICO
+   Razón: Inicializa toda la aplicación
+   Peso: 1.4KB
+
+📄 optimize_images_quality.py
+   Función: Script Python para optimizar imágenes WebP
+   Estado: ⚠️ REVISAR
+   Razón: Útil para futuras optimizaciones, pero no necesario para la web
+   Acción: Puedes eliminarlo si no lo vas a usar más (ya optimizaste todo)
+   Peso: 4.8KB
+
+================================================================================
+2. CARPETA: assets/images/ (2.5MB)
+================================================================================
+
+📁 assets/images/
+   Función: Contiene TODAS las imágenes de la web
+   Estado: ✅ MANTENER - CRÍTICO
+   Peso: 2.5MB total
+
+   📸 std.webp (205KB)
+      Función: Imagen principal circular de la pareja
+      Estado: ✅ MANTENER - Aparece en home y welcome
+      
+   📸 cewe.webp (28KB)
+      Función: Foto circular de Mercedes en sección "Nosotros"
+      Estado: ✅ MANTENER - Usada en HTML
+      
+   📸 pablo.webp (29KB)
+      Función: Foto circular de Pablo en sección "Nosotros"
+      Estado: ✅ MANTENER - Usada en HTML
+      
+   📸 atardecer.webp (184KB)
+      Función: Imagen de fondo de la sección home (#home)
+      Estado: ✅ MANTENER - Background principal
+      
+   📸 dylan.webp (13KB)
+      Función: Ícono pequeño en pantalla de carga (loading)
+      Estado: ✅ MANTENER - Usado en loading screen
+      
+   📸 placeholder.webp (3KB)
+      Función: Imagen genérica de placeholder (probablemente no usada)
+      Estado: ⚠️ REVISAR - No referenciada en HTML
+      Acción: Puedes eliminarla si no aparece en la web
+      
+   📁 desktop/ (1.6MB)
+      Función: Galería de fotos "Nuestra Historia"
+      Estado: ✅ MANTENER - Todas usadas en HTML
+      Contenido:
+        - 14 imágenes de la galería (optimizadas)
+        - images.json (meta-información)
+      
+   📄 desktop/images.json (400 bytes)
+      Función: Lista de imágenes para gallery-init.js (NO USADO)
+      Estado: ❌ ELIMINAR - gallery-init.js no está cargado en index.html
+      Peso: 0.4KB
+
+================================================================================
+3. CARPETA: assets/music/ (6.7MB)
+================================================================================
+
+📁 assets/music/
+   Función: Contiene música de fondo
+   Estado: ⚠️ REVISAR - MUCHO PESO
+   Peso: 6.7MB (¡EL MÁS PESADO DEL PROYECTO!)
+
+   🎵 concerning-hobbits.mp3 (6.7MB)
+      Función: Música de fondo de la web (de El Señor de los Anillos)
+      Estado: ⚠️ REVISAR URGENTE
+      Problema: 6.7MB es MUCHÍSIMO para una web
+      Recomendación:
+        - Si NO usas música: ❌ ELIMINAR (ahorras 6.7MB)
+        - Si SÍ la usas: Comprimir a ~1-2MB o usar formato más ligero
+        - La música NO es esencial para una invitación
+
+================================================================================
+4. CARPETA: assets/video/ (5.3MB)
+================================================================================
+
+📁 assets/video/
+   Función: Contiene videos para la web
+   Estado: ⚠️ REVISAR - PESO ALTO
+   Peso: 5.3MB
+
+   🎬 265501_tiny.mp4 (5.3MB)
+      Función: Video (posiblemente background o decorativo)
+      Estado: ⚠️ REVISAR
+      Problema: 5.3MB adicionales de carga
+      Recomendación:
+        - Verifica si el video se usa en la web actual
+        - Si no aparece: ❌ ELIMINAR (ahorras 5.3MB)
+        - Los videos son opcionales para invitaciones
+
+================================================================================
+5. CARPETA: css/ (44KB)
+================================================================================
+
+📁 css/
+   Función: Estilos de la web
+   Estado: ✅ MANTENER (con limpieza)
+   Peso: 44KB total
+
+   📄 guest.css (23KB)
+      Función: CSS PRINCIPAL consolidado (incluye common + animation)
+      Estado: ✅ MANTENER - CRÍTICO
+      Referenciado: Sí, en index.html
+      
+   📄 sunset-theme.css (5KB)
+      Función: Tema de colores sunset/atardecer
+      Estado: ✅ MANTENER - CRÍTICO
+      Referenciado: Sí, en index.html
+      
+   📄 style.css (9KB)
+      Función: CSS adicional (posiblemente no usado)
+      Estado: ❌ ELIMINAR
+      Razón: NO está referenciado en index.html
+      Acción: Se puede eliminar sin problemas
+      Peso: 9KB
+
+================================================================================
+6. CARPETA: js/ (268KB)
+================================================================================
+
+📁 js/
+   Función: Todo el JavaScript de la aplicación
+   Estado: ✅ MANTENER (con limpieza)
+   Peso: 268KB total
+
+   ─────────────────────────────────────────────────────────────────
+   6.1. ARCHIVOS RAÍZ DE js/
+   ─────────────────────────────────────────────────────────────────
+
+   📄 admin.js (99 bytes)
+      Función: Wrapper para cargar módulo admin
+      Estado: ⚠️ REVISAR - No usas admin en tu web
+      Acción: Probablemente no necesario, pero no afecta
+      
+   📄 guest.js (99 bytes)
+      Función: Wrapper para cargar módulo guest (ya no se usa)
+      Estado: ⚠️ REVISAR
+      Razón: init.js ahora carga directamente desde app/guest/guest.js
+      Acción: Probablemente redundante
+      
+   📄 main.js (2.8KB)
+      Función: Inicializa AOS (Animate On Scroll), RSVP form handlers
+      Estado: ❌ ELIMINAR
+      Razón: NO está cargado en index.html, duplica funcionalidad
+      Acción: Se puede eliminar, no se usa
+      
+   📄 gallery-init.js (4KB)
+      Función: Generador dinámico de galería desde images.json
+      Estado: ❌ ELIMINAR
+      Razón: NO está cargado en index.html, galería es estática
+      Acción: Se puede eliminar con images.json
+      
+   📄 lazyload.js (5KB)
+      Función: Sistema de lazy loading de imágenes con data-src
+      Estado: ✅ MANTENER - CRÍTICO
+      Referenciado: Sí, en index.html (defer)
+      
+   📄 modal-handler.js (1.5KB)
+      Función: Maneja el modal de imágenes (openImageModal)
+      Estado: ✅ MANTENER - CRÍTICO
+      Referenciado: Sí, en index.html (defer)
+      
+   📄 slideshow-init.js (3.5KB)
+      Función: Inicializa slideshow de desktop (no usado en móvil)
+      Estado: ✅ MANTENER
+      Referenciado: Sí, en index.html (defer)
+      
+   📄 slideshow-controls.js (13KB)
+      Función: Controla las tiras de fotos con scroll infinito
+      Estado: ✅ MANTENER - CRÍTICO
+      Referenciado: Sí, en index.html (al final)
+      Nota: Esencial para "Nuestra Historia"
+      
+   📄 verify-setup.js (2.4KB)
+      Función: Verifica que todo esté configurado correctamente
+      Estado: ✅ MANTENER
+      Referenciado: Sí, en index.html (defer)
+
+   ─────────────────────────────────────────────────────────────────
+   6.2. CARPETA: js/app/
+   ─────────────────────────────────────────────────────────────────
+
+   📁 js/app/admin/ (~15KB)
+      Función: Sistema de administración (comentarios, autenticación)
+      Estado: ⚠️ REVISAR
+      Archivos:
+        - admin.js (6KB)
+        - auth.js (5KB)
+        - navbar.js (4KB)
+      Recomendación:
+        - Si NO usas sistema de comentarios: ❌ ELIMINAR todos
+        - Si SÍ lo usas: ✅ MANTENER
+      Nota: El HTML no tiene formulario de comentarios visible
+      
+   📁 js/app/components/ (~25KB)
+      Función: Componentes UI (comentarios, likes, GIFs, etc.)
+      Estado: ⚠️ REVISAR
+      Archivos:
+        - card.js (5KB)
+        - comment.js (8KB)
+        - gif.js (3KB)
+        - like.js (4KB)
+        - pagination.js (5KB)
+      Recomendación:
+        - Son parte del sistema de comentarios
+        - Si no usas comentarios: ❌ ELIMINAR todos (~25KB)
+        
+   📁 js/app/guest/ (~35KB)
+      Función: Lógica principal de la invitación para invitados
+      Estado: ✅ MANTENER - CRÍTICO
+      Archivos:
+        - guest.js (19KB) - Controlador principal ✅
+        - audio.js (5KB) - Manejo de música ✅
+        - image.js (3KB) - Carga de imágenes ✅
+        - progress.js (3KB) - Barra de progreso ✅
+        - video.js (5KB) - Manejo de videos ⚠️ (si no usas video, eliminar)
+
+   ─────────────────────────────────────────────────────────────────
+   6.3. CARPETA: js/common/
+   ─────────────────────────────────────────────────────────────────
+
+   📁 js/common/ (~20KB)
+      Función: Utilidades compartidas
+      Estado: ✅ MANTENER - CRÍTICO
+      Archivos:
+        - language.js (3KB) - Manejo de idiomas
+        - offline.js (2KB) - Detección offline
+        - session.js (4KB) - Gestión de sesión
+        - storage.js (2KB) - localStorage wrapper
+        - theme.js (5KB) - Tema claro/oscuro
+        - util.js (4KB) - Utilidades generales
+      Razón: Usados por módulo guest principal
+
+   ─────────────────────────────────────────────────────────────────
+   6.4. CARPETA: js/connection/
+   ─────────────────────────────────────────────────────────────────
+
+   📁 js/connection/ (~8KB)
+      Función: Conexión con backend/API (comentarios)
+      Estado: ⚠️ REVISAR
+      Archivos:
+        - cache.js (3KB)
+        - dto.js (2KB)
+        - request.js (3KB)
+      Recomendación:
+        - Si NO usas comentarios/backend: ❌ ELIMINAR todos
+        - Si SÍ lo usas: ✅ MANTENER
+
+   ─────────────────────────────────────────────────────────────────
+   6.5. CARPETA: js/libs/
+   ─────────────────────────────────────────────────────────────────
+
+   📁 js/libs/ (~12KB)
+      Función: Librerías auxiliares
+      Estado: ✅ MANTENER
+      Archivos:
+        - bootstrap.js (2KB) - Wrapper de Bootstrap modals
+        - confetti.js (8KB) - Animación de confetti 🎉
+        - loader.js (2KB) - Cargador de librerías externas
+      Razón: Usados en la aplicación principal
+
+================================================================================
+7. RESUMEN DE RECOMENDACIONES
+================================================================================
+
+🔴 ELIMINAR URGENTE (Ahorro: ~19MB total):
+
+   1. assets/music/concerning-hobbits.mp3 (6.7MB)
+      → Si no usas música de fondo
+      
+   2. assets/video/265501_tiny.mp4 (5.3MB)
+      → Si no usas el video en la web
+      
+   3. css/style.css (9KB)
+      → No está referenciado en index.html
+      
+   4. js/main.js (2.8KB)
+      → No está cargado, funcionalidad duplicada
+      
+   5. js/gallery-init.js (4KB)
+      → No se usa, galería es estática
+      
+   6. assets/images/desktop/images.json (0.4KB)
+      → Va con gallery-init.js
+
+🟡 REVISAR (Ahorro potencial: ~70KB):
+
+   1. js/app/admin/ (15KB)
+   2. js/app/components/ (25KB)
+   3. js/connection/ (8KB)
+   4. optimize_images_quality.py (5KB)
+   5. assets/images/placeholder.webp (3KB)
+   6. js/admin.js + js/guest.js (200 bytes)
+   7. js/app/guest/video.js (5KB) - si no usas video
+   8. js/app/guest/audio.js (5KB) - si no usas música
+
+   → Eliminar SI NO usas sistema de comentarios
+
+✅ MANTENER SIEMPRE (Archivos críticos):
+
+   - index.html (página principal)
+   - init.js (inicialización)
+   - css/guest.css + css/sunset-theme.css
+   - Todas las imágenes en assets/images/ (excepto placeholder.webp)
+   - js/lazyload.js
+   - js/modal-handler.js
+   - js/slideshow-controls.js
+   - js/slideshow-init.js
+   - js/verify-setup.js
+   - js/app/guest/ (excepto video.js si no usas)
+   - js/common/ (todos)
+   - js/libs/ (todos)
+   - .gitignore, .nojekyll, LICENSE, README.md
+
+================================================================================
+8. PLAN DE LIMPIEZA SUGERIDO
+================================================================================
+
+FASE 1 - Limpieza Segura (Sin riesgo):
+   rm css/style.css
+   rm js/main.js
+   rm js/gallery-init.js
+   rm assets/images/desktop/images.json
+   Ahorro: ~16KB
+
+FASE 2 - Limpieza Media (Verificar primero que NO uses):
+   rm assets/music/concerning-hobbits.mp3    # Si no hay música
+   rm assets/video/265501_tiny.mp4           # Si no hay video
+   Ahorro: ~12MB
+
+FASE 3 - Limpieza Profunda (Solo si NO usas comentarios):
+   rm -rf js/app/admin/
+   rm -rf js/app/components/
+   rm -rf js/connection/
+   Ahorro: ~48KB
+
+FASE 4 - Opcional:
+   rm optimize_images_quality.py              # Ya optimizaste
+   rm assets/images/placeholder.webp          # No se usa
+   Ahorro: ~8KB
+
+RESULTADO FINAL ESPERADO:
+   - De ~15MB a ~3MB (si quitas música y video)
+   - De 65 archivos a ~55 archivos
+   - Web más rápida y limpia
+
+================================================================================
+9. NOTA FINAL
+================================================================================
+
+✅ TU WEB ACTUAL:
+   - Tamaño con todo: ~15MB
+   - Tamaño optimizado (sin música/video): ~3MB
+   - Archivos esenciales: ~40 archivos
+
+⚠️ ANTES DE ELIMINAR:
+   1. Haz backup (git commit)
+   2. Verifica que música y video NO se usen en la web
+   3. Prueba después de cada eliminación
+   4. Siempre puedes recuperar desde Git
+
+📝 CONTACTO:
+   Si necesitas ayuda para eliminar archivos específicos,
+   solo dime cuáles y los elimino de forma segura.
+
+================================================================================
+Fin de la auditoría
+================================================================================
