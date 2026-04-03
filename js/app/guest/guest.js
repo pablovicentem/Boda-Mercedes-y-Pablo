@@ -360,7 +360,7 @@ export const guest = (() => {
         };
         document.addEventListener('undangan.progress.done', safeBoot);
         document.addEventListener('undangan.progress.invalid', safeBoot);
-        setTimeout(safeBoot, 8000);
+        setTimeout(safeBoot, 3000);
 
         document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
         document.getElementById('button-modal-download').addEventListener('click', (e) => {
